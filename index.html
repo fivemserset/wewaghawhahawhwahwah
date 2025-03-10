@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tare! X Slaughters</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'CustomFont', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    /* Include custom font via @font-face */
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('Today Show.otf') format('truetype');
+    }
+
+    .ascii-art {
+      font-family: 'Courier New', monospace;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 10px;
+      text-shadow: 0 0 10px rgb(255, 255, 255), 0 0 20px red;
+      white-space: pre-wrap;
+    }
+
+    input, button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid rgb(255, 255, 255);
+      background-color: #000;
+      color: white;
+      font-size: 18px;
+      font-family: 'CustomFont', Arial, sans-serif;
+      border-radius: 5px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button.main-button {
+      display: inline-block;
+      width: 150px;
+      margin: 10px;
+      background-color: #111;
+      border: 2px solid rgb(255, 255, 255);
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgb(255, 255, 255);
+    }
+
+    button.main-button:hover {
+      background-color: red;
+      color: black;
+    }
+
+    /* Flexbox container to center content */
+    #click-page, #main-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    #click-page {
+      background-color: #000;
+    }
+
+    #main-page {
+      background-image: url('https://wallpaperaccess.com/full/527266.png');
+      background-size: cover;
+      display: none;
+    }
+
+    /* Center the login form */
+    #login-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: rgb(255, 255, 255);
+      width: 300px;
+    }
+
+    /* Glowing effect for ASCII art */
+    .glowing-text {
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red; }
+      100% { text-shadow: 0 0 20px red, 0 0 40px red, 0 0 60px red, 0 0 80px red; }
+    }
+
+    /* Floating Plus Signs */
+    .plus-sign {
+      position: absolute;
+      font-size: 24px;
+      color: rgb(255, 255, 255);
+      pointer-events: none;
+      user-select: none;
+      z-index: 1000;
+      animation: float-plus 2s linear infinite;
+    }
+
+    @keyframes float-plus {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(100px, 100px); }
+    }
+
+    .members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-left: 100px;
+      padding: 20px;
+    }
+
+    .member-box {
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+      border: 1px solid rgb(255, 255, 255);
+      width: 210px;
+      height: 205px;
+      margin-top: 300px;
+      text-align: center;
+      box-shadow: 3px 3px 3px rgb(255, 255, 255);
+    }
+
+    .member-box img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid rgb(255, 255, 255);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Click Page -->
+  <div id="click-page">
+    <div class="ascii-art" id="ascii-blood">
+      $$$$$$\  $$$$$$$$\  $$$$$$\  $$$$$$$\  $$$$$$$$\       $$\  $$$$$$\  $$\                               $$\        $$\                         
+      $$$ ___$$$\\__$$  __|$$  __$$\ $$  __$$\ $$  _____|     $$  |$$  __$$\ $$ |                              $$ |       $$ |                        
+     $$ _/   \_$$\  $$ |   $$ /  $$ |$$ |  $$ |$$ |          $$  / $$ /  \__|$$ | $$$$$$\  $$\   $$\  $$$$$$\  $$$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  
+    $$ / $$$$$\ $$\ $$ |   $$$$$$$$ |$$$$$$$  |$$$$$\       $$  /  \$$$$$$\  $$ | \____$$\ $$ |  $$ |$$  __$$\ $$  __$$\\_$$  _|  $$  __$$\ $$  __$$\ 
+    $$ |$$  $$ |$$ |$$ |   $$  __$$ |$$  __$$< $$  __|     $$  /    \____$$\ $$ | $$$$$$$ |$$ |  $$ |$$ /  $$ |$$ |  $$ | $$ |    $$$$$$$$ |$$ |  \__|
+    $$ |$$ /$$ |$$ |$$ |   $$ |  $$ |$$ |  $$ |$$ |       $$  /    $$\   $$ |$$ |$$  __$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____|$$ |      
+    $$ |\$$$$$$$$  |$$ |   $$ |  $$ |$$ |  $$ |$$$$$$$$\ $$  /     \$$$$$$  |$$ |\$$$$$$$ |\$$$$$$  |\$$$$$$$ |$$ |  $$ | \$$$$  |\$$$$$$$\ $$ |      
+    \$$\ \________/ \__|   \__|  \__|\__|  \__|\________|\__/       \______/ \__| \_______| \______/  \____$$ |\__|  \__|  \____/  \_______|\__|      
+     \$$$\   $$$\                                                                                    $$\   $$ |                                       
+      \_$$$$$$  _|                                                                                   \$$$$$$  |                                       
+        \______/                                                                                      \______/                                        
+    </div>
+    <form id="login-form">
+      <label for="username">Tare</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Slaughter</label>
+      <input type="password" id="password" name="password" required>
+      <button type="button" id="login-button">Login</button>
+    </form>
+  </div>
+
+  <!-- Main Page -->
+  <div id="main-page" style="display: none;">
+    <pre class="ascii-art" id="ascii-main">
+      $$$$$$\             $$\     $$\       $$$$$$$$\             $$\                          $$\     $$\                     
+      $$  __$$\            $$ |    \__|      $$  _____|            $$ |                         $$ |    \__|                    
+      $$ /  $$ |$$$$$$$\ $$$$$$\   $$\       $$ |      $$\   $$\ $$$$$$\    $$$$$$\   $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\  
+      $$$$$$$$ |$$  __$$\\_$$  _|  $$ |      $$$$$\    \$$\ $$  |\_$$  _|  $$  __$$\ $$  __$$\\_$$  _|  $$ |$$  __$$\ $$  __$$\ 
+      $$  __$$ |$$ |  $$ | $$ |    $$ |      $$  __|    \$$$$  /   $$ |    $$ /  $$ |$$ |  \__| $$ |    $$ |$$ /  $$ |$$ |  $$ |
+      $$ |  $$ |$$ |  $$ | $$ |$$\ $$ |      $$ |       $$  $$<    $$ |$$\ $$ |  $$ |$$ |       $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |
+      $$ |  $$ |$$ |  $$ | \$$$$  |$$ |      $$$$$$$$\ $$  /\$$\   \$$$$  |\$$$$$$  |$$ |       \$$$$  |$$ |\$$$$$$  |$$ |  $$ |
+      \__|  \__|\__|  \__|  \____/ \__|      \________|\__/  \__|   \____/  \______/ \__|        \____/ \__| \______/ \__|  \__|
+    </pre>
+    <center>
+      <div class="buttons">
+        <button class="main-button" id="history-btn">KCᵀᵃʳᵉ</button>
+        <button class="main-button" id="hoa-btn">Pleasedᵀᵃʳᵉ</button>
+        <button class="main-button" id="user1-btn">Klᵀᵃʳᵉ</button>
+        <button class="main-button" id="user2-btn">Rottᵀᵃʳᵉ</button>
+      </div>
+      <script src="assets/snow.js"></script>
+
+      <!-- Audio element to play music after login -->
+      <audio id="background-music" preload="auto">
+        <source src="pro.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+<!-- Member boxes -->
+      <div class="members">
+        <div class="member-box">
+          <img src="https://i.pinimg.com/736x/d6/42/cd/d642cd36d58f57b9ee52f24064dbe992.jpg" alt="Profile Picture">
+          <h2>kl</h2>
+          <p>Money Laundering #1-800</p>
+        </div>
+        <div class="member-box">
+          <img src="https://i.pinimg.com/736x/80/43/4e/80434e9c03d76b55073effaf0e39504d.jpg" alt="Profile Picture">
+          <h2>Six</h2>
+          <p>Profound skid! #Slaughters</p>
+        </div>
+        <div class="member-box">
+          <h2>Weeping</h2>
+          <p>Contact All on Discord; @xvxxxvxvxvxvvxvxvxvxvxvxxvx @deathamoungall @misdemeanour @itsyaboykl @xenophobes
+          </p>
+        </div>
+        <div class="member-box">
+            <h2>Rye</h2>
+            <p>Contact All on Discord; @xvxxxvxvxvxvvxvxvxvxvxvxxvx @deathamoungall @misdemeanour @itsyaboykl @xenophobes
+            </p>
+          </div>
+
+      </div>
+    </center>
+  </div>
+
+  <script>
+    // JavaScript to handle login functionality
+    document.getElementById('login-button').addEventListener('click', function() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "Tare" && password === "Slaughter") {
+        document.getElementById('click-page').style.display = 'none';
+        document.getElementById('main-page').style.display = 'flex';
+        document.getElementById('background-music').play();
+      } else {
+        alert("wrong info you silly goose -viral");
+      }
+    });
+
+    // Function to add floating red plus signs following the cursor
+    document.addEventListener('mousemove', function(event) {
+      const plusSign = document.createElement('div');
+      plusSign.classList.add('plus-sign');
+      plusSign.textContent = '.';
+      plusSign.style.left = event.pageX + 'px';
+      plusSign.style.top = event.pageY + 'px';
+
+      document.body.appendChild(plusSign);
+      setTimeout(() => {
+        plusSign.remove();
+      }, 50);
+    });
+
+    // Redirect buttons
+    document.getElementById('history-btn').addEventListener('click', function() {
+      window.location.href = 'Https://1800.sh';
+    });
+    document.getElementById('hoa-btn').addEventListener('click', function() {
+      window.location.href = 'Https://1800.sh';
+    });
+    document.getElementById('user1-btn').addEventListener('click', function() {
+      window.location.href = 'Https://1800.sh';
+    });
+    document.getElementById('user2-btn').addEventListener('click', function() {
+      window.location.href = 'Https://1800.sh';
+    });
+  </script>
+
+</body>
+</html>
