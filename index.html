@@ -99,42 +99,6 @@
       width: 300px;
     }
 
-    /* Members Section */
-    .members {
-      display: flex;
-      flex-wrap: wrap; /* Allow items to wrap */
-      justify-content: flex-start; /* Align items to the left */
-      align-items: flex-start; /* Align items to the top */
-      gap: 20px;
-      padding: 20px;
-      position: absolute;
-      right: 10px; /* Add some margin from the right edge */
-      top: 50%; /* Center vertically */
-      transform: translateY(-50%); /* Adjust for perfect vertical center */
-      height: auto;
-      width: 340px; /* Adjust width of the container */
-      overflow-y: auto; /* Allow scrolling if necessary */
-    }
-
-    .member-box {
-      background-color: rgba(184, 134, 80, 0.25);
-      padding: 15px;
-      border: 1px solid white;
-      width: 45%; /* Make sure each box is 45% of the container */
-      height: 200px; /* Adjust the height of each box */
-      text-align: center;
-      box-shadow: 3px 3px 3px white;
-      margin-bottom: 15px;
-    }
-
-    .member-box img {
-      width: 80px; /* Adjust image size */
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid white;
-      margin-bottom: 10px;
-    }
-
   </style>
 </head>
 <body>
@@ -216,40 +180,7 @@
     <audio id="background-music" preload="auto">
       <source src="Frank Ocean - In My Room (Lyric Video).mp3" type="audio/mp3">
     </audio>
-
-    <!-- Member Boxes -->
-    <div class="members">
-      <div class="member-box">
-        <img src="kl.png" alt="Profile Picture">
-        <h2>Kl</h2>
-        <p>Money Laundering #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="six.jpg" alt="Profile Picture">
-        <h2>Six</h2>
-        <p>Network Boner #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="harm.jpg" alt="Profile Picture">
-        <h2>Harm</h2>
-        <p>Gay dude #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="ry.jpg" alt="Profile Picture">
-        <h2>Criminality</h2>
-        <p>Fent taker #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="decmeber.jpg" alt="Profile Picture">
-        <h2>December</h2>
-        <p>Network Clown! #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="2k.jpg" alt="Profile Picture">
-        <h2>2K</h2>
-        <p>Sigma Boy #1-800</p>
-      </div>
-    </div>
+  </div>
 
   <script>
     document.getElementById('login-button').addEventListener('click', function() {
