@@ -102,7 +102,7 @@
     /* Members Section */
     .members {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: wrap; /* Allow items to wrap */
       justify-content: flex-start; /* Align items to the left */
       align-items: flex-start; /* Align items to the top */
       gap: 20px;
@@ -112,7 +112,7 @@
       top: 50%; /* Center vertically */
       transform: translateY(-50%); /* Adjust for perfect vertical center */
       height: auto;
-      width: 320px; /* Adjust the width of the container */
+      width: 340px; /* Adjust width of the container */
       overflow-y: auto; /* Allow scrolling if necessary */
     }
 
@@ -120,11 +120,11 @@
       background-color: rgba(184, 134, 80, 0.25);
       padding: 15px;
       border: 1px solid white;
-      width: 45%; /* Each box takes up 45% of the container's width */
+      width: 45%; /* Make sure each box is 45% of the container */
       height: 200px; /* Adjust the height of each box */
       text-align: center;
       box-shadow: 3px 3px 3px white;
-      margin-bottom: 15px; /* Space between the member boxes */
+      margin-bottom: 15px;
     }
 
     .member-box img {
