@@ -103,9 +103,17 @@
     .members {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start; /* Align items to the left */
+      align-items: flex-start; /* Align items to the top */
       gap: 20px;
       padding: 20px;
+      position: absolute;
+      right: 0; /* Align to the right side of the screen */
+      top: 50%; /* Center vertically */
+      transform: translateY(-50%); /* Adjust for perfect vertical center */
+      height: auto; /* Adjust height according to the content */
+      overflow: hidden; /* Prevent overflow */
+      flex-direction: column; /* Stack the items vertically */
     }
 
     .member-box {
@@ -116,6 +124,7 @@
       height: 205px;
       text-align: center;
       box-shadow: 3px 3px 3px white;
+      margin-bottom: 20px; /* Space between the member boxes */
     }
 
     .member-box img {
@@ -228,16 +237,19 @@
         <img src="ry.jpg" alt="Profile Picture">
         <h2>Criminality</h2>
         <p>Fent taker #1-800</p>
- </div>
+      </div>
       <div class="member-box">
         <img src="decmeber.jpg" alt="Profile Picture">
         <h2>December</h2>
         <p>Network Clown! #1-800</p>
-</div>
+      </div>
       <div class="member-box">
         <img src="2k.jpg" alt="Profile Picture">
         <h2>2K</h2>
         <p>Sigma Boy #1-800</p>
+      </div>
+    </div>
+
   <script>
     document.getElementById('login-button').addEventListener('click', function() {
       const username = document.getElementById('username').value;
@@ -252,7 +264,7 @@
           music.play().catch(error => console.log("Audio error:", error));
         }
       } else {
-        alert("Don't think to hard ;) -Six");
+        alert("Don't think too hard ;) -Six");
       }
     });
   </script>
