@@ -243,4 +243,33 @@
       <div class="member-box">
         <img src="decmeber.jpg" alt="Profile Picture">
         <h2>December</h2>
-        <p>Network
+        <p>Network Clown! #1-800</p>
+      </div>
+      <div class="member-box">
+        <img src="2k.jpg" alt="Profile Picture">
+        <h2>2K</h2>
+        <p>Sigma Boy #1-800</p>
+      </div>
+    </div>
+
+  <script>
+    document.getElementById('login-button').addEventListener('click', function() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "1800" && password === "sh") {
+        document.getElementById('click-page').style.display = 'none';
+        document.getElementById('main-page').style.display = 'flex';
+
+        const music = document.getElementById('background-music');
+        if (music) {
+          music.play().catch(error => console.log("Audio error:", error));
+        }
+      } else {
+        alert("Don't think too hard ;) -Six");
+      }
+    });
+  </script>
+
+</body>
+</html>
