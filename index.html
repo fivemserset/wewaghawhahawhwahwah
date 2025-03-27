@@ -108,30 +108,32 @@
       gap: 20px;
       padding: 20px;
       position: absolute;
-      right: 0; /* Align to the right side of the screen */
+      right: 10px; /* Add some margin from the right edge */
       top: 50%; /* Center vertically */
       transform: translateY(-50%); /* Adjust for perfect vertical center */
-      height: auto; /* Adjust height according to the content */
-      overflow: hidden; /* Prevent overflow */
-      flex-direction: column; /* Stack the items vertically */
+      height: auto;
+      width: 300px; /* Limit the width of the section to fit the screen */
+      overflow-y: auto; /* Allow scrolling if necessary */
     }
 
     .member-box {
       background-color: rgba(184, 134, 80, 0.25);
-      padding: 20px;
+      padding: 15px;
       border: 1px solid white;
-      width: 210px;
-      height: 205px;
+      width: 100%; /* Allow boxes to fill available width */
+      max-width: 210px; /* Limit max width of each box */
+      height: 180px; /* Reduce the height of each box */
       text-align: center;
       box-shadow: 3px 3px 3px white;
-      margin-bottom: 20px; /* Space between the member boxes */
+      margin-bottom: 15px; /* Space between the member boxes */
     }
 
     .member-box img {
-      width: 100px;
-      height: 100px;
+      width: 80px; /* Reduce image size */
+      height: 80px;
       border-radius: 50%;
       border: 2px solid white;
+      margin-bottom: 10px;
     }
 
   </style>
@@ -241,33 +243,4 @@
       <div class="member-box">
         <img src="decmeber.jpg" alt="Profile Picture">
         <h2>December</h2>
-        <p>Network Clown! #1-800</p>
-      </div>
-      <div class="member-box">
-        <img src="2k.jpg" alt="Profile Picture">
-        <h2>2K</h2>
-        <p>Sigma Boy #1-800</p>
-      </div>
-    </div>
-
-  <script>
-    document.getElementById('login-button').addEventListener('click', function() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      if (username === "1800" && password === "sh") {
-        document.getElementById('click-page').style.display = 'none';
-        document.getElementById('main-page').style.display = 'flex';
-
-        const music = document.getElementById('background-music');
-        if (music) {
-          music.play().catch(error => console.log("Audio error:", error));
-        }
-      } else {
-        alert("Don't think too hard ;) -Six");
-      }
-    });
-  </script>
-
-</body>
-</html>
+        <p>Network
