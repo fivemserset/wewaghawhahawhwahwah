@@ -27,6 +27,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
         }
         .profile img {
             width: 100%;
@@ -40,6 +42,42 @@
             font-size: 16px;
             text-transform: uppercase;
             font-weight: bold;
+        }
+
+        /* Hover sparkle effect */
+        .profile:hover {
+            transform: scale(1.05);
+        }
+
+        .profile:hover::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            animation: sparkle 1.5s ease-in-out infinite;
+            z-index: 1;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Keyframe animation for the sparkle effect */
+        @keyframes sparkle {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
         }
     </style>
 </head>
