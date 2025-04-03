@@ -91,13 +91,27 @@
                 opacity: 0;
             }
         }
+
+        /* ASCII Art styling */
+        .ascii-art {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 50px;
+            color: white;
+            white-space: pre;
+            z-index: 2;
+            transform: translateY(-50%);
+            text-align: right;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body>
     <!-- Video background -->
     <video id="bg-video" autoplay muted loop>
         <source src="your-video.mp4" type="video/mp4">
-        <!-- Add other formats if needed, e.g., WebM, Ogg -->
         Your browser does not support the video tag.
     </video>
 
@@ -126,11 +140,12 @@
         <div class="profile">
             <img src="2k.jpg" alt="Person 6">
             <div class="profile-name">2K</div>
-       </div>
-        <div class="profile">
-            <img src="decmeber.jpg" alt="Person 6">
-            <div class="profile-name">KC</div>
         </div>
+    </div>
+
+    <!-- ASCII Art 1-800 on the right -->
+    <div class="ascii-art">
+        1  -  8  -  0
     </div>
 </body>
 </html>
