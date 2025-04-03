@@ -21,65 +21,64 @@
             object-fit: cover;
             z-index: -1;
         }
+
         /* Profile container */
         .profile-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller profiles */
+            gap: 15px;
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
             position: relative;
             z-index: 1;
-            padding: 20px;
+            padding: 10px;
         }
         .profile {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             text-align: center;
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 350px;
+            width: 140px;
+            height: 230px;
         }
         .profile img {
             width: 100%;
-            height: 180px;
+            height: 100px;
             object-fit: cover;
             border-bottom: 2px solid #333;
         }
         .profile-name {
             background-color: #333;
             color: white;
-            padding: 5px;
-            font-size: 16px;
+            padding: 4px;
+            font-size: 12px;
             text-transform: uppercase;
             font-weight: bold;
         }
-
         .profile-description {
-            font-size: 14px;
+            font-size: 10px;
             color: #555;
-            padding: 5px;
-            margin-top: 5px;
-            height: 50px;
+            padding: 4px;
+            height: 40px;
             overflow: hidden;
         }
 
-        /* Hover effect */
+        /* Hover sparkle effect */
         .profile:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
-
         .profile:hover::after {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 200%;
-            height: 200%;
+            width: 150%;
+            height: 150%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
             animation: sparkle 1.5s ease-in-out infinite;
             z-index: 1;
@@ -107,18 +106,17 @@
         /* ASCII Art styling */
         .ascii-art {
             position: fixed;
-            top: 50%;
-            right: 8px;
+            top: 20%;
+            right: 10px;
             font-family: "Courier New", Courier, monospace;
-            font-size: 50px;
+            font-size: 30px;
             color: white;
             white-space: pre;
             z-index: 2;
-            transform: translateY(-50%);
             text-align: right;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
         }
-
     </style>
 </head>
 <body>
@@ -133,43 +131,49 @@
         <div class="profile">
             <img src="harm.jpg" alt="Person 1">
             <div class="profile-name">harm</div>
-            <div class="profile-description">@pwnedpc</div> <!-- Added text -->
+            <div class="profile-description">@pwnedpc</div>
         </div>
         <div class="profile">
             <img src="weep.jpg" alt="Person 2">
             <div class="profile-name">Weeping</div>
-            <div class="profile-description">@w33ping</div> <!-- Added text -->
+            <div class="profile-description">@w33ping</div>
         </div>
         <div class="profile">
             <img src="six.jpg" alt="Person 3">
             <div class="profile-name">Six</div>
-            <div class="profile-description">@sickhvh</div> <!-- Added text -->
+            <div class="profile-description">@sickhvh</div>
         </div>
         <div class="profile">
             <img src="kl.png" alt="Person 4">
             <div class="profile-name">KL</div>
-            <div class="profile-description">@breachables</div> <!-- Added text -->
+            <div class="profile-description">@breachables</div>
         </div>
         <div class="profile">
             <img src="ry.jpg" alt="Person 5">
             <div class="profile-name">Criminality</div>
-            <div class="profile-description">@CRIMIADMIN</div> <!-- Added text -->
+            <div class="profile-description">@CRIMIADMIN</div>
         </div>
         <div class="profile">
             <img src="2k.jpg" alt="Person 6">
             <div class="profile-name">2K</div>
-            <div class="profile-description">@opiumpng</div> <!-- Added text -->
+            <div class="profile-description">@opiumpng</div>
         </div>
         <div class="profile">
             <img src="decmeber.jpg" alt="Person 7">
             <div class="profile-name">KC</div>
-            <div class="profile-description">@stolenkids</div> <!-- Added text -->
+            <div class="profile-description">@stolenkids</div>
         </div>
     </div>
 
-    <!-- ASCII Art 1-800 on the right -->
+    <!-- ASCII Art 1-800 (Ladder Style) -->
     <div class="ascii-art">
-        1  -  8  -  0 - 0
+        1  
+        -  
+        8  
+        -  
+        0  
+        -  
+        0  
     </div>
 </body>
 </html>
