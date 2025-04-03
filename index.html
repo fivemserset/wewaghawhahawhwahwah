@@ -67,60 +67,23 @@
             overflow: hidden;
         }
 
-        /* Hover sparkle effect */
-        .profile:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-        .profile:hover::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
-            animation: sparkle 1.5s ease-in-out infinite;
-            z-index: 1;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Keyframe animation for the sparkle effect */
-        @keyframes sparkle {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0);
-                opacity: 0;
-            }
-        }
-
         /* ASCII Art styling with neon glow effect */
         .ascii-art {
             position: fixed;
             top: 50%;
             right: 20px;
             font-family: "Courier New", Courier, monospace;
-            font-size: 20px; /* Increased size */
+            font-size: 14px; /* Smaller size */
             font-weight: bold;
             color: white;
             white-space: pre;
             z-index: 2;
             text-align: right;
             text-shadow: 
-                0 0 5px #fff,
-                0 0 10px #0ff,
-                0 0 20px #0ff,
-                0 0 40px #0ff,
-                0 0 80px #0ff; /* Neon glow effect */
+                0 0 3px #fff,
+                0 0 6px #0ff,
+                0 0 12px #0ff,
+                0 0 24px #0ff; /* Adjusted glow effect */
             line-height: 1.2;
             transform: translateY(-50%);
         }
@@ -173,48 +136,46 @@
         <div class="profile">
             <img src="decmeber.jpg" alt="Person 7">
             <div class="profile-name">Truth</div>
-            <div class="profile-description">@@C32414</div>
+            <div class="profile-description">@C32414</div>
         </div>
     </div>
 
-    <!-- Glowing ASCII Art 1-800 (Ladder Style) -->
+    <!-- Glowing ASCII Art 1-800 (Smaller Size) -->
     <div class="ascii-art">
-               
-       
- .---. 
-/_   | 
- |   | 
- |   | 
- |   | 
- |   | 
- `---'  
- ,------. 
- '------'           
-  .-----.   
- /  .-.  \  
-|   \_.' /  
- /  .-. '.  
-|  |   |  | 
- \  '-'  /  
-  `----''    
- ,------. 
- '------'        
-  .----.   
- /  ..  \  
-.  /  \  . 
-|  |  '  | 
-'  \  /  ' 
- \  `'  /  
-  `---''   
- ,------. 
- '------'          
-  .----.   
- /  ..  \  
-.  /  \  . 
-|  |  '  | 
-'  \  /  ' 
- \  `'  /  
-  `---''   
+        .---.  
+        /_   |  
+         |   |  
+         |   |  
+         |   |  
+         |   |  
+         `---'  
+        ,------.  
+        '------'  
+        .-----.   
+       /  .-.  \  
+      |   \_.' /  
+       /  .-. '.  
+      |  |   |  | 
+       \  '-'  /  
+        `----'   
+       ,------. 
+       '------'        
+        .----.  
+       /  ..  \  
+      .  /  \  . 
+      |  |  '  | 
+      '  \  /  ' 
+       \  `'  /  
+        `---''   
+       ,------. 
+       '------'          
+        .----.  
+       /  ..  \  
+      .  /  \  . 
+      |  |  '  | 
+      '  \  /  ' 
+       \  `'  /  
+        `---''  
     </div>
 </body>
 </html>
