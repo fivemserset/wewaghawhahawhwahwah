@@ -25,10 +25,10 @@
         /* Profile container */
         .profile-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Smaller profiles */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 15px;
             width: 80%;
-            max-width: 700px;
+            max-width: 900px;
             margin: 50px auto;
             position: relative;
             z-index: 1;
@@ -43,7 +43,7 @@
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 140px;
-            height: 210px;
+            height: 230px;
         }
         .profile img {
             width: 100%;
@@ -67,13 +67,19 @@
             overflow: hidden;
         }
 
+        /* Hover effect to move profile */
+        .profile:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
         /* ASCII Art styling with neon glow effect */
         .ascii-art {
             position: fixed;
             top: 50%;
             right: 20px;
             font-family: "Courier New", Courier, monospace;
-            font-size: 14px; /* Smaller size */
+            font-size: 14px;
             font-weight: bold;
             color: white;
             white-space: pre;
@@ -83,7 +89,7 @@
                 0 0 3px #fff,
                 0 0 6px #0ff,
                 0 0 12px #0ff,
-                0 0 24px #0ff; /* Adjusted glow effect */
+                0 0 24px #0ff;
             line-height: 1.2;
             transform: translateY(-50%);
         }
