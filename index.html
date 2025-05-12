@@ -1,27 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Big Text Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .big-text {
-            font-size: 5em;
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>1-800</title>
+  <link rel="icon" type="image/gif" href="favicon.gif">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: rgb(6,6,6);
+      color: #e0e0e0;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      cursor: url('http://www.rw-designer.com/cursor-extern.php?id=86815'), auto;
+    }
+    a {
+      text-decoration: none;
+    }
+    #enter-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(6,6,6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+      transition: opacity 1s ease;
+    }
+    #enter-overlay.fade-out {
+      opacity: 0;
+    }
+    #enter-overlay h1 {
+      color: #e0e0e0;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    header {
+      position: relative;
+      height: 450px;
+    }
+    .angel {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 200px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+    .links {
+      margin: 1.5rem 0;
+    }
+    .links a {
+      display: block;
+      color: #f05454;
+      margin: 0.5rem 0;
+      transition: color 0.2s ease;
+    }
+    .links a:hover {
+      color: #ff6f6f;
+      text-decoration: underline;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 2rem 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 0.5rem auto;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      max-width: 300px;
+      background: none;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: #888;
+      padding-bottom: 1rem;
+    }
+    @-webkit-keyframes swing {
+      0% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        -webkit-transform: translateX(-50%) rotate(-6deg);
+                transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        -webkit-transform: translateX(-50%) rotate(6deg);
+                transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        -webkit-transform: translateX(-50%) rotate(0deg);
+                transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    @keyframes swing {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      25% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      50% {
+        transform: translateX(-50%) rotate(-6deg);
+      }
+      75% {
+        transform: translateX(-50%) rotate(6deg);
+      }
+      100% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+    }
+    .swing {
+      transform-origin: top center;
+      -webkit-animation-name: swing;
+              animation-name: swing;
+      -webkit-animation-duration: 4s;
+              animation-duration: 4s;
+      -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+    }
+
+    /* ❄️ Snowflake styles */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      pointer-events: none;
+      z-index: 9999;
+      animation-name: fall;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="big-text">Noah took over</div>
+  <div id="enter-overlay">
+    <h1>Click to Enter</h1>
+  </div>
+  <header>
+    <img class="angel swing" src="logo.png" alt="Angel Symbol (rope at top)" />
+  </header>
+  <div class="container">
+    <h1>『1』-『8』『0』『0』</h1>
+    <h2>𝚛𝚘𝚜𝚝𝚎𝚛</h2>
+
+    <hr />
+    <ul>
+      <li>Kl-ᴼᵍ</li>
+      <li>Xo-𝚁𝙴𝚃𝙸𝚁𝙴𝙳</li>
+      <li>Crashout-ᴼᵍ</li>
+      <li>Sq2-ᴼᵍ</li>
+      <li>Criminality-ᴼᵍ</li>
+      <li>Harm-ᴺᵉʷ</li>
+      <li>2k-ᴺᵉʷ</li>
+      <li>Hanko-ᴺᵉʷ</li>
+      <li>Memory-ᴺᵉʷ</li>
+      <li>7kz-ᴺᵉʷ</li>
+      <li>Korean-ᴺᵉʷ</li>
+    </ul>
+    <footer>
+      <p>&copy; 2025 1-800. All rights reserved.</p>
+      <p>six inc</p>
+    </footer>
+  </div>
+  <audio id="background-music" src="ericdoa - fool4love (Official Video).mp3" loop></audio>
+  <script>
+    document.getElementById('enter-overlay').addEventListener('click', function() {
+      this.classList.add('fade-out');
+      var audio = document.getElementById('background-music');
+      audio.play();
+      setTimeout(() => {
+        this.remove();
+      }, 1000);
+    });
+
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(snowflake);
+      setTimeout(() => {
+        snowflake.remove();
+      }, 10000);
+    }
+
+    setInterval(createSnowflake, 300);
+  </script>
 </body>
 </html>
