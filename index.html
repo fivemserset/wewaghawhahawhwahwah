@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing Button</title>
+    <title>Group Bio Link</title>
     <style>
         /* Basic Reset */
         * {
@@ -12,18 +12,37 @@
             box-sizing: border-box;
         }
 
-        /* Body Styling */
+        /* Full-Screen Background */
         body {
             font-family: Arial, sans-serif;
-            background-color: #121212;
+            background-color: black;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Splash Screen */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: white;
+            z-index: 1000;
         }
 
-        /* Button Styling */
+        .splash-screen h1 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Glowing Button */
         .glow-button {
             padding: 12px 24px;
             font-size: 16px;
@@ -39,7 +58,6 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        /* Subtle White Glow Effect */
         .glow-button::before {
             content: '';
             position: absolute;
@@ -53,13 +71,11 @@
             animation: pulse 1.5s infinite;
         }
 
-        /* Hover Effect */
         .glow-button:hover {
             background-color: #444;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        /* Pulse Animation */
         @keyframes pulse {
             0% {
                 transform: translate(-50%, -50%) scale(0.8);
@@ -74,12 +90,130 @@
                 opacity: 0.8;
             }
         }
+
+        /* Loading Bar */
+        .loading-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0;
+            background-color: #ff6347;
+            border-radius: 5px;
+            transition: width 3s ease;
+        }
+
+        /* Starry Glitter Effect */
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.8; transform: scale(0.8); }
+            50% { opacity: 0.3; transform: scale(1.2); }
+        }
+
+        /* Moving Stars */
+        .moving-star {
+            animation: moveStars linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes moveStars {
+            from {
+                transform: translateX(100vw);
+            }
+            to {
+                transform: translateX(-100vw);
+            }
+        }
+
+        /* Main Content */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            display: none;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Glowing Button -->
-    <button class="glow-button">Click Me</button>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div>
+            <h1>Welcome to Our Group</h1>
+            <button class="glow-button" onclick="startLoading()">Click to Enter</button>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Meet the Team</h1>
+        <ul>
+            <li>John Doe</li>
+            <li>Jane Smith</li>
+            <li>Emily Johnson</li>
+            <li>Michael Brown</li>
+            <li>Sarah Davis</li>
+        </ul>
+    </div>
+
+    <!-- Starry Glitter Background -->
+    <script>
+        const numberOfStars = 200;
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star', 'moving-star');
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            document.body.appendChild(star);
+        }
+
+        function startLoading() {
+            document.querySelector('.loading-bar-container').style.display = 'block';
+            document.querySelector('.loading-bar').style.width = '100%';
+
+            setTimeout(() => {
+                document.querySelector('.splash-screen').style.display = 'none';
+                document.querySelector('.container').style.display = 'block';
+            }, 3000);
+        }
+    </script>
 
 </body>
 </html>
