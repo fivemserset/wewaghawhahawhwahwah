@@ -169,7 +169,7 @@
   <!-- Splash Screen -->
   <div class="splash-screen">
     <div>
-      <h1>Welcome to Our Group</h1>
+      <h1>Welcome!</h1>
       <button class="glow-button" id="enterBtn">Click to Enter</button>
     </div>
   </div>
@@ -210,8 +210,11 @@
 
     btn.addEventListener('click', () => {
       // Play the audio
-      const audio = new Audio('Nope your too late i already died.mp3');
-      audio.play();
+<audio id="backgroundMusic" loop>
+  <source src="Nope your too late i already died.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
 
       // Fade out the splash screen
       splash.classList.add('fade-out');
