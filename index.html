@@ -1,109 +1,63 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>1800.sh</title>
-  <link rel="icon" type="image/png" href="images/output.png">
-  <link rel="stylesheet" href="css/loading.css">
-  <link rel="stylesheet" href="css/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 8 0 0 . s h</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 8px 0;
+            padding: 10px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d4d4d4;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="boot-screen">
-    <div class="scanline"></div>
-    <div class="boot-sequence">
-      <div class="header">
-        <div class="logo">
-          <img src="images/output.png" alt="Caskets OS Logo">
-        </div>
-        <div class="version">build_x64_23.58</div>
-        <div class="system-info">arch=x86_64 platform=efi secure_boot=disabled kvm=active</div>
-      </div>
+<div class="container">
+    <h1>Meet the Team</h1>
+    <ul>
+        <li>John Doe</li>
+        <li>Jane Smith</li>
+        <li>Emily Johnson</li>
+        <li>Michael Brown</li>
+        <li>Sarah Davis</li>
+    </ul>
+</div>
 
-      <div class="boot-log info" style="animation-delay: 0.5s">Loading kernel modules...</div>
-      <div class="boot-log success" style="animation-delay: 1s">CPU: Ryzen 7 9800X3D detected at 5.2 GHz</div>
-      <div class="boot-log success" style="animation-delay: 1.5s">Memory: G.Skill Trident Z5 RGB DDR5-6000 16GB initialized</div>
-
-      <div class="memory-check">
-        <div class="boot-log info" style="animation-delay: 2s">Running memory diagnostic...</div>
-        <script>
-          for (let i = 0; i < 100; i++) {
-            const block = document.createElement('div');
-            block.className = 'memory-block';
-            block.style.animationDelay = (2 + i * 0.015) + 's';
-            document.write(block.outerHTML);
-          }
-        </script><div class="memory-block" style="animation-delay: 2s;"></div><div class="memory-block" style="animation-delay: 2.015s;"></div><div class="memory-block" style="animation-delay: 2.03s;"></div><div class="memory-block" style="animation-delay: 2.045s;"></div><div class="memory-block" style="animation-delay: 2.06s;"></div><div class="memory-block" style="animation-delay: 2.075s;"></div><div class="memory-block" style="animation-delay: 2.09s;"></div><div class="memory-block" style="animation-delay: 2.105s;"></div><div class="memory-block" style="animation-delay: 2.12s;"></div><div class="memory-block" style="animation-delay: 2.135s;"></div><div class="memory-block" style="animation-delay: 2.15s;"></div><div class="memory-block" style="animation-delay: 2.165s;"></div><div class="memory-block" style="animation-delay: 2.18s;"></div><div class="memory-block" style="animation-delay: 2.195s;"></div><div class="memory-block" style="animation-delay: 2.21s;"></div><div class="memory-block" style="animation-delay: 2.225s;"></div><div class="memory-block" style="animation-delay: 2.24s;"></div><div class="memory-block" style="animation-delay: 2.255s;"></div><div class="memory-block" style="animation-delay: 2.27s;"></div><div class="memory-block" style="animation-delay: 2.285s;"></div><div class="memory-block" style="animation-delay: 2.3s;"></div><div class="memory-block" style="animation-delay: 2.315s;"></div><div class="memory-block" style="animation-delay: 2.33s;"></div><div class="memory-block" style="animation-delay: 2.345s;"></div><div class="memory-block" style="animation-delay: 2.36s;"></div><div class="memory-block" style="animation-delay: 2.375s;"></div><div class="memory-block" style="animation-delay: 2.39s;"></div><div class="memory-block" style="animation-delay: 2.405s;"></div><div class="memory-block" style="animation-delay: 2.42s;"></div><div class="memory-block" style="animation-delay: 2.435s;"></div><div class="memory-block" style="animation-delay: 2.45s;"></div><div class="memory-block" style="animation-delay: 2.465s;"></div><div class="memory-block" style="animation-delay: 2.48s;"></div><div class="memory-block" style="animation-delay: 2.495s;"></div><div class="memory-block" style="animation-delay: 2.51s;"></div><div class="memory-block" style="animation-delay: 2.525s;"></div><div class="memory-block" style="animation-delay: 2.54s;"></div><div class="memory-block" style="animation-delay: 2.555s;"></div><div class="memory-block" style="animation-delay: 2.57s;"></div><div class="memory-block" style="animation-delay: 2.585s;"></div><div class="memory-block" style="animation-delay: 2.6s;"></div><div class="memory-block" style="animation-delay: 2.615s;"></div><div class="memory-block" style="animation-delay: 2.63s;"></div><div class="memory-block" style="animation-delay: 2.645s;"></div><div class="memory-block" style="animation-delay: 2.66s;"></div><div class="memory-block" style="animation-delay: 2.675s;"></div><div class="memory-block" style="animation-delay: 2.69s;"></div><div class="memory-block" style="animation-delay: 2.705s;"></div><div class="memory-block" style="animation-delay: 2.72s;"></div><div class="memory-block" style="animation-delay: 2.735s;"></div><div class="memory-block" style="animation-delay: 2.75s;"></div><div class="memory-block" style="animation-delay: 2.765s;"></div><div class="memory-block" style="animation-delay: 2.78s;"></div><div class="memory-block" style="animation-delay: 2.795s;"></div><div class="memory-block" style="animation-delay: 2.81s;"></div><div class="memory-block" style="animation-delay: 2.825s;"></div><div class="memory-block" style="animation-delay: 2.84s;"></div><div class="memory-block" style="animation-delay: 2.855s;"></div><div class="memory-block" style="animation-delay: 2.87s;"></div><div class="memory-block" style="animation-delay: 2.885s;"></div><div class="memory-block" style="animation-delay: 2.9s;"></div><div class="memory-block" style="animation-delay: 2.915s;"></div><div class="memory-block" style="animation-delay: 2.93s;"></div><div class="memory-block" style="animation-delay: 2.945s;"></div><div class="memory-block" style="animation-delay: 2.96s;"></div><div class="memory-block" style="animation-delay: 2.975s;"></div><div class="memory-block" style="animation-delay: 2.99s;"></div><div class="memory-block" style="animation-delay: 3.005s;"></div><div class="memory-block" style="animation-delay: 3.02s;"></div><div class="memory-block" style="animation-delay: 3.035s;"></div><div class="memory-block" style="animation-delay: 3.05s;"></div><div class="memory-block" style="animation-delay: 3.065s;"></div><div class="memory-block" style="animation-delay: 3.08s;"></div><div class="memory-block" style="animation-delay: 3.095s;"></div><div class="memory-block" style="animation-delay: 3.11s;"></div><div class="memory-block" style="animation-delay: 3.125s;"></div><div class="memory-block" style="animation-delay: 3.14s;"></div><div class="memory-block" style="animation-delay: 3.155s;"></div><div class="memory-block" style="animation-delay: 3.17s;"></div><div class="memory-block" style="animation-delay: 3.185s;"></div><div class="memory-block" style="animation-delay: 3.2s;"></div><div class="memory-block" style="animation-delay: 3.215s;"></div><div class="memory-block" style="animation-delay: 3.23s;"></div><div class="memory-block" style="animation-delay: 3.245s;"></div><div class="memory-block" style="animation-delay: 3.26s;"></div><div class="memory-block" style="animation-delay: 3.275s;"></div><div class="memory-block" style="animation-delay: 3.29s;"></div><div class="memory-block" style="animation-delay: 3.305s;"></div><div class="memory-block" style="animation-delay: 3.32s;"></div><div class="memory-block" style="animation-delay: 3.335s;"></div><div class="memory-block" style="animation-delay: 3.35s;"></div><div class="memory-block" style="animation-delay: 3.365s;"></div><div class="memory-block" style="animation-delay: 3.38s;"></div><div class="memory-block" style="animation-delay: 3.395s;"></div><div class="memory-block" style="animation-delay: 3.41s;"></div><div class="memory-block" style="animation-delay: 3.425s;"></div><div class="memory-block" style="animation-delay: 3.44s;"></div><div class="memory-block" style="animation-delay: 3.455s;"></div><div class="memory-block" style="animation-delay: 3.47s;"></div><div class="memory-block" style="animation-delay: 3.485s;"></div>
-      </div>
-
-      <div class="boot-log success" style="animation-delay: 3s">Initializing PCI devices...</div>
-      <div class="boot-log success" style="animation-delay: 3.2s">Loading system drivers: nvidia.ko, audio.ko, net.ko</div>
-      <div class="boot-log warning" style="animation-delay: 3.4s">ACPI: Warning!</div>
-      <div class="boot-log info" style="animation-delay: 3.6s">Starting system services [1/3]...</div>
-
-      <div class="progress">
-        <div class="progress-bar"></div>
-      </div>
-
-      <div class="status">SYSTEM READY</div>
-      <div class="click-prompt">click to continue</div>
-    </div>
-  </div>
-
-  <div id="click-text"></div>
-
-  <div id="content-wrapper" style="display: none; filter: blur(5px);">
-    <div id="logo">
-      <img src="images/output.png" alt="Logo">
-      <div id="logo-text">1800.sh</div>
-    </div>
-
-    <div id="main-content">
-      <div id="names-list">
-        <div class="profile-name" data-name="petrograd">Kyle</div>
-        <div class="profile-name" data-name="krome">Noah</div>
-        <div class="profile-name" data-name="tsargrad">Crashout</div>
-        <div class="profile-name" data-name="wraith">Sq2</div>
-        <div class="profile-name" data-name="agony">Criminality</div>
-        <div class="profile-name" data-name="exo">Harm</div>
-        <div class="profile-name" data-name="exo">2k</div>
-        <div class="profile-name" data-name="exo">Korean</div>
-        <div class="profile-name" data-name="exo">Memory</div>
-        <div class="profile-name" data-name="kj">kj</div>
-      </div>
-
-      <div id="profile-display">
-        <img id="profile-pic" src="" alt="Profile">
-        <p id="profile-desc"></p>
-      </div>
-    </div>
-  </div>
-
-  <button id="player-toggle">🎶</button>
-
-  <div id="audio-player">
-    <div class="title-bar">
-      <span>Media Player</span>
-      <div class="close-button">×</div>
-    </div>
-    <div class="controls">
-      <button id="prev-btn">⏮</button>
-      <button id="play-btn">▶</button>
-      <button id="next-btn">⏭</button>
-      <button id="shuffle-btn">⤮</button>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
-    <div class="song-list"></div>
-  </div>
-
-  <audio id="music"></audio>
-
-  <script src="js/glitch.js"></script>
-  <script src="js/boot.js"></script>
-  <script src="js/members.js"></script>
-  <script src="js/audioplayer.js"></script>
-  <script src="js/highlight.js"></script>
-  <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-
-</body></html>
+</body>
+</html>
