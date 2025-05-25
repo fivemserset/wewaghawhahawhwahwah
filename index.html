@@ -1,245 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>1-800</title>
-  <link rel="icon" type="image/gif" href="favicon.gif">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: rgb(6,6,6);
-      color: #e0e0e0;
-      line-height: 1.5;
-      margin: 0;
-      padding: 0;
-      cursor: url('http://www.rw-designer.com/cursor-extern.php?id=86815'), auto;
-    }
-    a {
-      text-decoration: none;
-    }
-    #enter-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgb(6,6,6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      cursor: pointer;
-      transition: opacity 1s ease;
-    }
-    #enter-overlay.fade-out {
-      opacity: 0;
-    }
-    #enter-overlay h1 {
-      color: #e0e0e0;
-      font-size: 1.5rem;
-      font-weight: normal;
-    }
-    header {
-      position: relative;
-      height: 450px;
-    }
-    .angel {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 200px;
-    }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 1rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: #aaa;
-      margin-bottom: 1rem;
-    }
-    .links {
-      margin: 1.5rem 0;
-    }
-    .links a {
-      display: block;
-      color: #f05454;
-      margin: 0.5rem 0;
-      transition: color 0.2s ease;
-    }
-    .links a:hover {
-      color: #ff6f6f;
-      text-decoration: underline;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #333;
-      margin: 2rem 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin: 0.5rem auto;
-      padding: 0.75rem 1rem;
-      text-align: center;
-      max-width: 300px;
-      background: none;
-      border: none;
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      color: #888;
-      padding-bottom: 1rem;
-    }
-    @-webkit-keyframes swing {
-      0% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        -webkit-transform: translateX(-50%) rotate(-6deg);
-                transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    @keyframes swing {
-      0% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    .swing {
-      transform-origin: top center;
-      -webkit-animation-name: swing;
-              animation-name: swing;
-      -webkit-animation-duration: 4s;
-              animation-duration: 4s;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite;
-      -webkit-animation-timing-function: ease-in-out;
-              animation-timing-function: ease-in-out;
-    }
-
-    /* ❄️ Snowflake styles */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
-      font-size: 1em;
-      pointer-events: none;
-      z-index: 9999;
-      animation-name: fall;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      opacity: 0.8;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-  </style>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>caskets.cc</title>
+  <link rel="icon" type="image/png" href="images/output.png">
+  <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="enter-overlay">
-    <h1>Click to Enter</h1>
+
+  <div id="boot-screen">
+    <div class="scanline"></div>
+    <div class="boot-sequence">
+      <div class="header">
+        <div class="logo">
+          <img src="images/output.png" alt="Caskets OS Logo">
+        </div>
+        <div class="version">build_x64_23.58</div>
+        <div class="system-info">arch=x86_64 platform=efi secure_boot=disabled kvm=active</div>
+      </div>
+
+      <div class="boot-log info" style="animation-delay: 0.5s">Loading kernel modules...</div>
+      <div class="boot-log success" style="animation-delay: 1s">CPU: Ryzen 7 9800X3D detected at 5.2 GHz</div>
+      <div class="boot-log success" style="animation-delay: 1.5s">Memory: G.Skill Trident Z5 RGB DDR5-6000 16GB initialized</div>
+
+      <div class="memory-check">
+        <div class="boot-log info" style="animation-delay: 2s">Running memory diagnostic...</div>
+        <script>
+          for (let i = 0; i < 100; i++) {
+            const block = document.createElement('div');
+            block.className = 'memory-block';
+            block.style.animationDelay = (2 + i * 0.015) + 's';
+            document.write(block.outerHTML);
+          }
+        </script><div class="memory-block" style="animation-delay: 2s;"></div><div class="memory-block" style="animation-delay: 2.015s;"></div><div class="memory-block" style="animation-delay: 2.03s;"></div><div class="memory-block" style="animation-delay: 2.045s;"></div><div class="memory-block" style="animation-delay: 2.06s;"></div><div class="memory-block" style="animation-delay: 2.075s;"></div><div class="memory-block" style="animation-delay: 2.09s;"></div><div class="memory-block" style="animation-delay: 2.105s;"></div><div class="memory-block" style="animation-delay: 2.12s;"></div><div class="memory-block" style="animation-delay: 2.135s;"></div><div class="memory-block" style="animation-delay: 2.15s;"></div><div class="memory-block" style="animation-delay: 2.165s;"></div><div class="memory-block" style="animation-delay: 2.18s;"></div><div class="memory-block" style="animation-delay: 2.195s;"></div><div class="memory-block" style="animation-delay: 2.21s;"></div><div class="memory-block" style="animation-delay: 2.225s;"></div><div class="memory-block" style="animation-delay: 2.24s;"></div><div class="memory-block" style="animation-delay: 2.255s;"></div><div class="memory-block" style="animation-delay: 2.27s;"></div><div class="memory-block" style="animation-delay: 2.285s;"></div><div class="memory-block" style="animation-delay: 2.3s;"></div><div class="memory-block" style="animation-delay: 2.315s;"></div><div class="memory-block" style="animation-delay: 2.33s;"></div><div class="memory-block" style="animation-delay: 2.345s;"></div><div class="memory-block" style="animation-delay: 2.36s;"></div><div class="memory-block" style="animation-delay: 2.375s;"></div><div class="memory-block" style="animation-delay: 2.39s;"></div><div class="memory-block" style="animation-delay: 2.405s;"></div><div class="memory-block" style="animation-delay: 2.42s;"></div><div class="memory-block" style="animation-delay: 2.435s;"></div><div class="memory-block" style="animation-delay: 2.45s;"></div><div class="memory-block" style="animation-delay: 2.465s;"></div><div class="memory-block" style="animation-delay: 2.48s;"></div><div class="memory-block" style="animation-delay: 2.495s;"></div><div class="memory-block" style="animation-delay: 2.51s;"></div><div class="memory-block" style="animation-delay: 2.525s;"></div><div class="memory-block" style="animation-delay: 2.54s;"></div><div class="memory-block" style="animation-delay: 2.555s;"></div><div class="memory-block" style="animation-delay: 2.57s;"></div><div class="memory-block" style="animation-delay: 2.585s;"></div><div class="memory-block" style="animation-delay: 2.6s;"></div><div class="memory-block" style="animation-delay: 2.615s;"></div><div class="memory-block" style="animation-delay: 2.63s;"></div><div class="memory-block" style="animation-delay: 2.645s;"></div><div class="memory-block" style="animation-delay: 2.66s;"></div><div class="memory-block" style="animation-delay: 2.675s;"></div><div class="memory-block" style="animation-delay: 2.69s;"></div><div class="memory-block" style="animation-delay: 2.705s;"></div><div class="memory-block" style="animation-delay: 2.72s;"></div><div class="memory-block" style="animation-delay: 2.735s;"></div><div class="memory-block" style="animation-delay: 2.75s;"></div><div class="memory-block" style="animation-delay: 2.765s;"></div><div class="memory-block" style="animation-delay: 2.78s;"></div><div class="memory-block" style="animation-delay: 2.795s;"></div><div class="memory-block" style="animation-delay: 2.81s;"></div><div class="memory-block" style="animation-delay: 2.825s;"></div><div class="memory-block" style="animation-delay: 2.84s;"></div><div class="memory-block" style="animation-delay: 2.855s;"></div><div class="memory-block" style="animation-delay: 2.87s;"></div><div class="memory-block" style="animation-delay: 2.885s;"></div><div class="memory-block" style="animation-delay: 2.9s;"></div><div class="memory-block" style="animation-delay: 2.915s;"></div><div class="memory-block" style="animation-delay: 2.93s;"></div><div class="memory-block" style="animation-delay: 2.945s;"></div><div class="memory-block" style="animation-delay: 2.96s;"></div><div class="memory-block" style="animation-delay: 2.975s;"></div><div class="memory-block" style="animation-delay: 2.99s;"></div><div class="memory-block" style="animation-delay: 3.005s;"></div><div class="memory-block" style="animation-delay: 3.02s;"></div><div class="memory-block" style="animation-delay: 3.035s;"></div><div class="memory-block" style="animation-delay: 3.05s;"></div><div class="memory-block" style="animation-delay: 3.065s;"></div><div class="memory-block" style="animation-delay: 3.08s;"></div><div class="memory-block" style="animation-delay: 3.095s;"></div><div class="memory-block" style="animation-delay: 3.11s;"></div><div class="memory-block" style="animation-delay: 3.125s;"></div><div class="memory-block" style="animation-delay: 3.14s;"></div><div class="memory-block" style="animation-delay: 3.155s;"></div><div class="memory-block" style="animation-delay: 3.17s;"></div><div class="memory-block" style="animation-delay: 3.185s;"></div><div class="memory-block" style="animation-delay: 3.2s;"></div><div class="memory-block" style="animation-delay: 3.215s;"></div><div class="memory-block" style="animation-delay: 3.23s;"></div><div class="memory-block" style="animation-delay: 3.245s;"></div><div class="memory-block" style="animation-delay: 3.26s;"></div><div class="memory-block" style="animation-delay: 3.275s;"></div><div class="memory-block" style="animation-delay: 3.29s;"></div><div class="memory-block" style="animation-delay: 3.305s;"></div><div class="memory-block" style="animation-delay: 3.32s;"></div><div class="memory-block" style="animation-delay: 3.335s;"></div><div class="memory-block" style="animation-delay: 3.35s;"></div><div class="memory-block" style="animation-delay: 3.365s;"></div><div class="memory-block" style="animation-delay: 3.38s;"></div><div class="memory-block" style="animation-delay: 3.395s;"></div><div class="memory-block" style="animation-delay: 3.41s;"></div><div class="memory-block" style="animation-delay: 3.425s;"></div><div class="memory-block" style="animation-delay: 3.44s;"></div><div class="memory-block" style="animation-delay: 3.455s;"></div><div class="memory-block" style="animation-delay: 3.47s;"></div><div class="memory-block" style="animation-delay: 3.485s;"></div>
+      </div>
+
+      <div class="boot-log success" style="animation-delay: 3s">Initializing PCI devices...</div>
+      <div class="boot-log success" style="animation-delay: 3.2s">Loading system drivers: nvidia.ko, audio.ko, net.ko</div>
+      <div class="boot-log warning" style="animation-delay: 3.4s">ACPI: Warning!</div>
+      <div class="boot-log info" style="animation-delay: 3.6s">Starting system services [1/3]...</div>
+
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="status">SYSTEM READY</div>
+      <div class="click-prompt">click to continue</div>
+    </div>
   </div>
-  <header>
-    <img class="angel swing" src="logo.png" alt="Angel Symbol (rope at top)" />
-  </header>
-  <div class="container">
-    <h1>『1』-『8』『0』『0』</h1>
-    <h2>𝚛𝚘𝚜𝚝𝚎𝚛</h2>
 
-    <hr />
-    <ul>
-      <li>Kl-ᴼᵍ</li>
-      <li>Xo-𝚁𝙴𝚃𝙸𝚁𝙴𝙳</li>
-      <li>Crashout-ᴼᵍ</li>
-      <li>Sq2-ᴼᵍ</li>
-      <li>Criminality-ᴼᵍ</li>
-      <li>Harm-ᴺᵉʷ</li>
-      <li>2k-ᴺᵉʷ</li>
-      <li>Hanko-ᴺᵉʷ</li>
-      <li>Memory-ᴺᵉʷ</li>
-      <li>7kz-ᴺᵉʷ</li>
-      <li>Korean-ᴺᵉʷ</li>
-    </ul>
-    <footer>
-      <p>&copy; 2025 1-800. All rights reserved.</p>
-      <p>six inc</p>
-    </footer>
+  <div id="click-text"></div>
+
+  <div id="content-wrapper" style="display: none; filter: blur(5px);">
+    <div id="logo">
+      <img src="images/output.png" alt="Logo">
+      <div id="logo-text">1800.sh</div>
+    </div>
+
+    <div id="main-content">
+      <div id="names-list">
+        <div class="profile-name" data-name="petrograd">Kyle</div>
+        <div class="profile-name" data-name="krome">Noah</div>
+        <div class="profile-name" data-name="tsargrad">Crashout</div>
+        <div class="profile-name" data-name="wraith">Sq2</div>
+        <div class="profile-name" data-name="agony">Criminality</div>
+        <div class="profile-name" data-name="exo">Harm</div>
+        <div class="profile-name" data-name="exo">2k</div>
+        <div class="profile-name" data-name="exo">Korean</div>
+        <div class="profile-name" data-name="exo">Memory</div>
+        <div class="profile-name" data-name="kj">kj</div>
+      </div>
+
+      <div id="profile-display">
+        <img id="profile-pic" src="" alt="Profile">
+        <p id="profile-desc"></p>
+      </div>
+    </div>
   </div>
-  <audio id="background-music" src="Nope your too late i already died.mp3" loop></audio>
-  <script>
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-      this.classList.add('fade-out');
-      var audio = document.getElementById('background-music');
-      audio.play();
-      setTimeout(() => {
-        this.remove();
-      }, 1000);
-    });
 
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.textContent = '❄';
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      document.body.appendChild(snowflake);
-      setTimeout(() => {
-        snowflake.remove();
-      }, 10000);
-    }
+  <button id="player-toggle">🎶</button>
 
-    setInterval(createSnowflake, 300);
-  </script>
-</body>
-</html>
+  <div id="audio-player">
+    <div class="title-bar">
+      <span>Media Player</span>
+      <div class="close-button">×</div>
+    </div>
+    <div class="controls">
+      <button id="prev-btn">⏮</button>
+      <button id="play-btn">▶</button>
+      <button id="next-btn">⏭</button>
+      <button id="shuffle-btn">⤮</button>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="song-list"></div>
+  </div>
+
+  <audio id="music"></audio>
+
+  <script src="js/glitch.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/members.js"></script>
+  <script src="js/audioplayer.js"></script>
+  <script src="js/highlight.js"></script>
+  <script disable-devtool-auto="" src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+
+</body></html>
