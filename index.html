@@ -91,35 +91,6 @@
             }
         }
 
-        /* Loading Bar */
-        .loading-bar-container {
-            width: 80%;
-            height: 5px;
-            background-color: #333;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: none;
-            position: relative;
-        }
-
-        .loading-bar {
-            height: 100%;
-            width: 0;
-            background-color: #ff6347;
-            border-radius: 5px;
-            transition: width 0.03s ease;
-        }
-
-        .percentage-text {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1rem;
-            color: white;
-            font-weight: bold;
-        }
-
         /* Starry Glitter Background */
         .star {
             position: absolute;
@@ -181,11 +152,7 @@
     <div class="splash-screen">
         <div>
             <h1>Welcome to Our Group</h1>
-            <button class="glow-button" onclick="startLoading()">Click to Enter</button>
-            <div class="loading-bar-container">
-                <div class="loading-bar"></div>
-                <div class="percentage-text">0%</div>
-            </div>
+            <button class="glow-button" onclick="enterSite()">Click to Enter</button>
         </div>
     </div>
 
@@ -216,22 +183,9 @@
             document.body.appendChild(star);
         }
 
-        function startLoading() {
-            const loadingBar = document.querySelector('.loading-bar');
-            const percentageText = document.querySelector('.percentage-text');
-            let width = 0;
-
-            const interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    document.querySelector('.splash-screen').style.display = 'none';
-                    document.querySelector('.container').style.display = 'block';
-                } else {
-                    width++;
-                    loadingBar.style.width = `${width}%`;
-                    percentageText.textContent = `${width}%`;
-                }
-            }, 30);
+        function enterSite() {
+            document.querySelector('.splash-screen').style.display = 'none';
+            document.querySelector('.container').style.display = 'block';
         }
     </script>
 
