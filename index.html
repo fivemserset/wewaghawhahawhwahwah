@@ -4,203 +4,180 @@
   <meta charset="UTF-8" />
   <title>1-800</title>
   <link rel="icon" type="image/gif" href="favicon.gif">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    /* Body and Background */
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Source Code Pro', monospace;
       background-color: #0a0a0a;
-      color: #e0e0e0;
+      color: #c0c0c0;
       line-height: 1.5;
       margin: 0;
       padding: 0;
       cursor: url('http://www.rw-designer.com/cursor-extern.php?id=86815'), auto;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* Overlay Styling */
+    /* Glitch effect */
+    .glitch-container {
+      position: relative;
+    }
+    .glitch {
+      position: relative;
+      animation: glitch 3s infinite;
+    }
+    @keyframes glitch {
+      0% { transform: translate(0) }
+      20% { transform: translate(-2px, 2px) }
+      40% { transform: translate(-2px, -2px) }
+      60% { transform: translate(2px, 2px) }
+      80% { transform: translate(2px, -2px) }
+      100% { transform: translate(0) }
+    }
+
+    /* CRT effect */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.15) 0px,
+        rgba(0,0,0,0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
+
     #enter-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: #0a0a0a;
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       cursor: pointer;
       transition: opacity 1s ease;
-    }
-
-    #enter-overlay.fade-out {
-      opacity: 0;
-    }
-
-    #enter-overlay h1 {
-      color: #e0e0e0;
-      font-size: 2rem;
-      font-weight: normal;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-    }
-
-    /* Header Styling */
-    header {
-      position: relative;
-      height: 450px;
-      background: url('background-image.jpg') no-repeat center center/cover;
-      filter: grayscale(100%) blur(5px);
+      background-image: 
+        radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%),
+        repeating-linear-gradient(
+          45deg,
+          transparent 0px,
+          transparent 2px,
+          rgba(255,0,0,0.1) 2px,
+          rgba(255,0,0,0.1) 4px
+        );
     }
 
     .angel {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200px;
-      animation: swing 4s ease-in-out infinite;
-    }
-
-    /* Main Content Styling */
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 1rem;
-      text-align: center;
-      z-index: 1;
-      position: relative;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-    }
-
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: #aaa;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-    }
-
-    .links {
-      margin: 1.5rem 0;
+      filter: drop-shadow(0 0 5px rgba(255,0,0,0.5)) grayscale(100%);
+      mix-blend-mode: lighten;
     }
 
     .links a {
-      display: block;
-      color: #f05454;
-      margin: 0.5rem 0;
-      transition: color 0.2s ease;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      color: #ff4040;
+      position: relative;
+      padding: 0.2rem 0;
+      display: inline-block;
     }
-
     .links a:hover {
-      color: #ff6f6f;
-      text-decoration: underline;
+      color: #ff0000;
+      animation: link-glitch 0.3s infinite;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #333;
-      margin: 2rem 0;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
+    @keyframes link-glitch {
+      0% { transform: translateX(0) }
+      25% { transform: translateX(-2px) }
+      50% { transform: translateX(2px) }
+      75% { transform: translateX(-1px) }
+      100% { transform: translateX(0) }
     }
 
     ul li {
-      margin: 0.5rem auto;
-      padding: 0.75rem 1rem;
-      text-align: center;
-      max-width: 300px;
-      background: none;
-      border: none;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      background: rgba(255,0,0,0.05) !important;
+      border: 1px solid rgba(255,0,0,0.1) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    ul li::before {
+      content: ">";
+      position: absolute;
+      left: -15px;
+      color: #ff4040;
+      opacity: 0.5;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      color: #888;
-      padding-bottom: 1rem;
+    /* Distortion effect */
+    .distort {
+      animation: distort 5s infinite;
+    }
+    @keyframes distort {
+      0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) }
+      2% { clip-path: polygon(10% 0, 90% 0, 95% 100%, 5% 100%) }
+      4% { clip-path: polygon(0 5%, 100% 15%, 90% 95%, 10% 85%) }
+      6% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) }
     }
 
-    /* Swing Animation */
-    @keyframes swing {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      25% {
-        transform: translate(-50%, -50%) rotate(6deg);
-      }
-      50% {
-        transform: translate(-50%, -50%) rotate(-6deg);
-      }
-      75% {
-        transform: translate(-50%, -50%) rotate(6deg);
-      }
-      100% {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
+    /* Error text effect */
+    .error-text {
+      color: #ff4040;
+      text-shadow: 0 0 10px rgba(255,64,64,0.5);
+      position: relative;
     }
-
-    /* Snowflake Animation */
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
-      font-size: 1em;
-      pointer-events: none;
-      z-index: 9999;
-      animation-name: fall;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      opacity: 0.8;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-      }
+    .error-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 2px;
+      top: 0;
+      color: rgba(0,255,255,0.3);
+      z-index: -1;
     }
   </style>
 </head>
 <body>
-  <div id="enter-overlay">
-    <h1>Click to Enter</h1>
+  <div id="enter-overlay" class="distort">
+    <h1 class="error-text" data-text="Click to Enter">Click to Enter</h1>
   </div>
-  <header>
-    <img class="angel" src="logo.png" alt="Angel Symbol" />
-  </header>
-  <div class="container">
-    <h1>『1』-『8』『0』『0』</h1>
-    <h2>𝚛𝚘𝚜𝚝𝚎𝚛</h2>
 
-    <hr />
-    <ul>
-      <li>🅺🆈🅻🅴-𝐹𝑜𝓊𝓃𝒹𝑒𝓇</li>
-      <li>🅽🅾🅰🅷-𝒪𝓌𝓃𝑒𝓇</li>
-      <li>𝐂𝐫𝐚𝐬𝐡𝐨𝐮𝐭-𝑀𝑒𝓂𝒷𝑒𝓇</li>
-      <li>𝐒𝐪𝟐-𝑀𝑒𝓂𝒷𝑒𝓇</li>
-      <li>
-::contentReference[oaicite:0]{index=0}
- 
+  <!-- Rest of your HTML content -->
+
+  <script>
+    // Add random glitch effects
+    setInterval(() => {
+      const elements = document.querySelectorAll('.glitch');
+      elements.forEach(el => {
+        el.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+        setTimeout(() => {
+          el.style.transform = 'translate(0)';
+        }, 50);
+      });
+    }, 3000);
+
+    // Add terminal-style typing effect
+    document.querySelectorAll('li').forEach((li, index) => {
+      const text = li.textContent;
+      li.textContent = '';
+      setTimeout(() => {
+        Array.from(text).forEach((char, i) => {
+          setTimeout(() => {
+            li.textContent += char;
+          }, i * 50);
+        });
+      }, index * 200);
+    });
+  </script>
+</body>
+</html>
