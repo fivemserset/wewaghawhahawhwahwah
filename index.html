@@ -3,61 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1 8 0 0 . s h</title>
+    <title>Group Bio Link</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        /* Basic Reset */
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Full-Screen Background */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
             height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
-        .container {
+
+        /* Starry Glitter Effect */
+        .star {
+            position: absolute;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            text-align: center;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
         }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.8; transform: scale(0.8); }
+            50% { opacity: 0.3; transform: scale(1.2); }
+        }
+
+        /* Centered Content */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+
         h1 {
-            color: #333;
-            font-size: 24px;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         li {
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            margin: 8px 0;
-            padding: 10px;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-        li:hover {
-            background-color: #d4d4d4;
+            font-size: 1.2rem;
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Meet the Team</h1>
-    <ul>
-        <li>John Doe</li>
-        <li>Jane Smith</li>
-        <li>Emily Johnson</li>
-        <li>Michael Brown</li>
-        <li>Sarah Davis</li>
-    </ul>
-</div>
+    <!-- Starry Glitter Background -->
+    <script>
+        const numberOfStars = 200;
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.width = `${Math.random() * 3 + 1}px`;
+            star.style.height = star.style.width;
+            star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            document.body.appendChild(star);
+        }
+    </script>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Meet the Team</h1>
+        <ul>
+            <li>John Doe</li>
+            <li>Jane Smith</li>
+            <li>Emily Johnson</li>
+            <li>Michael Brown</li>
+            <li>Sarah Davis</li>
+        </ul>
+    </div>
 
 </body>
 </html>
