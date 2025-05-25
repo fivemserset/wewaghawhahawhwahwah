@@ -6,30 +6,33 @@
   <link rel="icon" type="image/gif" href="favicon.gif">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+    /* Body and Background */
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: rgb(6,6,6);
+      background-color: #0a0a0a;
       color: #e0e0e0;
       line-height: 1.5;
       margin: 0;
       padding: 0;
       cursor: url('http://www.rw-designer.com/cursor-extern.php?id=86815'), auto;
+      overflow: hidden;
     }
-    a {
-      text-decoration: none;
-    }
+
+    /* Overlay Styling */
     #enter-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgb(6,6,6);
+      background-color: rgba(0, 0, 0, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -37,63 +40,88 @@
       cursor: pointer;
       transition: opacity 1s ease;
     }
+
     #enter-overlay.fade-out {
       opacity: 0;
     }
+
     #enter-overlay h1 {
       color: #e0e0e0;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-weight: normal;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
     }
+
+    /* Header Styling */
     header {
       position: relative;
       height: 450px;
+      background: url('background-image.jpg') no-repeat center center/cover;
+      filter: grayscale(100%) blur(5px);
     }
+
     .angel {
       position: absolute;
-      top: 0;
+      top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
       width: 200px;
+      animation: swing 4s ease-in-out infinite;
     }
+
+    /* Main Content Styling */
     .container {
       max-width: 700px;
       margin: 0 auto;
       padding: 1rem;
       text-align: center;
+      z-index: 1;
+      position: relative;
     }
+
     h1 {
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
     }
+
     h2 {
       font-size: 1.25rem;
       font-weight: 400;
       color: #aaa;
       margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
     }
+
     .links {
       margin: 1.5rem 0;
     }
+
     .links a {
       display: block;
       color: #f05454;
       margin: 0.5rem 0;
       transition: color 0.2s ease;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
     }
+
     .links a:hover {
       color: #ff6f6f;
       text-decoration: underline;
     }
+
     hr {
       border: none;
       border-top: 1px solid #333;
       margin: 2rem 0;
     }
+
     ul {
       list-style: none;
       padding: 0;
     }
+
     ul li {
       margin: 0.5rem auto;
       padding: 0.75rem 1rem;
@@ -101,7 +129,9 @@
       max-width: 300px;
       background: none;
       border: none;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
     }
+
     footer {
       text-align: center;
       margin-top: 2rem;
@@ -109,58 +139,27 @@
       color: #888;
       padding-bottom: 1rem;
     }
-    @-webkit-keyframes swing {
-      0% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        -webkit-transform: translateX(-50%) rotate(-6deg);
-                transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-    }
+
+    /* Swing Animation */
     @keyframes swing {
       0% {
-        transform: translateX(-50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
       }
       25% {
-        transform: translateX(-50%) rotate(6deg);
+        transform: translate(-50%, -50%) rotate(6deg);
       }
       50% {
-        transform: translateX(-50%) rotate(-6deg);
+        transform: translate(-50%, -50%) rotate(-6deg);
       }
       75% {
-        transform: translateX(-50%) rotate(6deg);
+        transform: translate(-50%, -50%) rotate(6deg);
       }
       100% {
-        transform: translateX(-50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
       }
     }
-    .swing {
-      transform-origin: top center;
-      -webkit-animation-name: swing;
-              animation-name: swing;
-      -webkit-animation-duration: 4s;
-              animation-duration: 4s;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite;
-      -webkit-animation-timing-function: ease-in-out;
-              animation-timing-function: ease-in-out;
-    }
 
-    /* ❄️ Snowflake styles */
+    /* Snowflake Animation */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -190,7 +189,7 @@
     <h1>Click to Enter</h1>
   </div>
   <header>
-    <img class="angel swing" src="logo.png" alt="Angel Symbol (rope at top)" />
+    <img class="angel" src="logo.png" alt="Angel Symbol" />
   </header>
   <div class="container">
     <h1>『1』-『8』『0』『0』</h1>
@@ -202,44 +201,6 @@
       <li>🅽🅾🅰🅷-𝒪𝓌𝓃𝑒𝓇</li>
       <li>𝐂𝐫𝐚𝐬𝐡𝐨𝐮𝐭-𝑀𝑒𝓂𝒷𝑒𝓇</li>
       <li>𝐒𝐪𝟐-𝑀𝑒𝓂𝒷𝑒𝓇</li>
-      <li>𝟕𝐤𝐳-𝑀𝑒𝓂𝒷𝑒𝓇</li>
-      <li>𝐊𝐨𝐫𝐞𝐚𝐧-𝑀𝑒𝓂𝒷𝑒𝓇</li>
-      <li>𝐇𝐚𝐫𝐦-ᵣᵢₚ</li>
-      <li>𝟐𝐤-ᵣᵢₚ</li>
-      <li>𝐇𝐚𝐧𝐤𝐨-ᵣᵢₚ</li>
-      <li>𝐌𝐞𝐦𝐨𝐫𝐲-ᵣᵢₚ</li>
-      <li>𝐂𝐫𝐢𝐦𝐢𝐧𝐚𝐥𝐢𝐭𝐲-ᵣᵢₚ</li>
-    </ul>
-    <footer>
-      <p>&copy; 2025 1-800. All rights reserved.</p>
-      <p>noah inc</p>
-    </footer>
-  </div>
-  <audio id="background-music" src="Nope your too late i already died.mp3" loop></audio>
-  <script>
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-      this.classList.add('fade-out');
-      var audio = document.getElementById('background-music');
-      audio.play();
-      setTimeout(() => {
-        this.remove();
-      }, 1000);
-    });
-
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.textContent = '❄';
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      document.body.appendChild(snowflake);
-      setTimeout(() => {
-        snowflake.remove();
-      }, 10000);
-    }
-
-    setInterval(createSnowflake, 300);
-  </script>
-</body>
-</html>
+      <li>
+::contentReference[oaicite:0]{index=0}
+ 
