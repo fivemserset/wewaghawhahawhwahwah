@@ -57,6 +57,24 @@
             background-color: #ff4500;
         }
 
+        /* Loading Bar */
+        .loading-bar-container {
+            width: 80%;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0;
+            background-color: #ff6347;
+            border-radius: 5px;
+            transition: width 3s ease;
+        }
+
         /* Starry Glitter Effect */
         .star {
             position: absolute;
@@ -118,7 +136,10 @@
     <div class="splash-screen">
         <div>
             <h1>Welcome to Our Group</h1>
-            <button class="enter-btn" onclick="enterSite()">Click to Enter</button>
+            <button class="enter-btn" onclick="startLoading()">Click to Enter</button>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
         </div>
     </div>
 
@@ -149,9 +170,14 @@
             document.body.appendChild(star);
         }
 
-        function enterSite() {
-            document.querySelector('.splash-screen').style.display = 'none';
-            document.querySelector('.container').style.display = 'block';
+        function startLoading() {
+            document.querySelector('.loading-bar-container').style.display = 'block';
+            document.querySelector('.loading-bar').style.width = '100%';
+
+            setTimeout(() => {
+                document.querySelector('.splash-screen').style.display = 'none';
+                document.querySelector('.container').style.display = 'block';
+            }, 3000);
         }
     </script>
 
