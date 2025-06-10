@@ -1,239 +1,185 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1-800</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1800 OS</title>
   <link rel="icon" type="image/gif" href="favicon.gif">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    html, body, * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: rgb(6,6,6);
-      color: #e0e0e0;
-      line-height: 1.5;
+      background: #181c22;
+      color: #c6cdd7;
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      min-height: 100vh;
       margin: 0;
-      padding: 0;
-      cursor: url('http://www.rw-designer.com/cursor-extern.php?id=86815'), auto;
-    }
-    a {
-      text-decoration: none;
-    }
-    #enter-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgb(6,6,6);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      cursor: pointer;
-      transition: opacity 1s ease;
+      height: 100vh;
     }
-    #enter-overlay.fade-out {
-      opacity: 0;
+    #arch-login {
+      background: #181c22;
+      border: 1px solid #2f343f;
+      border-radius: 10px;
+      box-shadow: 0 0 32px #000a;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      min-width: 420px;
+      max-width: 95vw;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2.5rem;
     }
-    #enter-overlay h1 {
-      color: #e0e0e0;
-      font-size: 1.5rem;
-      font-weight: normal;
+    .ascii-art {
+      color: #d11717;
+      font-weight: bold;
+      font-size: 1.1em;
+      line-height: 1.1;
+      white-space: pre;
+      user-select: text;
+      text-shadow: 0 0 8px #d11717aa;
     }
-    header {
-      position: relative;
-      height: 450px;
-    }
-    .angel {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 200px;
-    }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 1rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: #aaa;
-      margin-bottom: 1rem;
-    }
-    .links {
-      margin: 1.5rem 0;
-    }
-    .links a {
-      display: block;
-      color: #f05454;
-      margin: 0.5rem 0;
-      transition: color 0.2s ease;
-    }
-    .links a:hover {
-      color: #ff6f6f;
-      text-decoration: underline;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #333;
-      margin: 2rem 0;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      margin: 0.5rem auto;
-      padding: 0.75rem 1rem;
-      text-align: center;
-      max-width: 300px;
-      background: none;
-      border: none;
-    }
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      color: #888;
-      padding-bottom: 1rem;
-    }
-    @-webkit-keyframes swing {
-      0% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        -webkit-transform: translateX(-50%) rotate(-6deg);
-                transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        -webkit-transform: translateX(-50%) rotate(6deg);
-                transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        -webkit-transform: translateX(-50%) rotate(0deg);
-                transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    @keyframes swing {
-      0% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-      25% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      50% {
-        transform: translateX(-50%) rotate(-6deg);
-      }
-      75% {
-        transform: translateX(-50%) rotate(6deg);
-      }
-      100% {
-        transform: translateX(-50%) rotate(0deg);
-      }
-    }
-    .swing {
-      transform-origin: top center;
-      -webkit-animation-name: swing;
-              animation-name: swing;
-      -webkit-animation-duration: 4s;
-              animation-duration: 4s;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite;
-      -webkit-animation-timing-function: ease-in-out;
-              animation-timing-function: ease-in-out;
-    }
-
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
+    .neofetch-info {
+      color: #c6cdd7;
       font-size: 1em;
-      pointer-events: none;
-      z-index: 9999;
-      animation-name: fall;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      opacity: 0.8;
+      font-family: inherit;
+      margin-top: 0.2em;
+      margin-bottom: 1.5em;
+      user-select: text;
     }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      min-width: 220px;
+    }
+    .login-form label {
+      color: #dd0606;
+      font-size: 1.1em;
+      margin-bottom: 0.2em;
+      font-weight: bold;
+    }
+    .login-form select, .login-form input, .login-form button {
+      background: #232733;
+      color: #d7c6c6;
+      border: 1px solid #d11717;
+      border-radius: 4px;
+      padding: 0.5em 1em;
+      font-size: 1em;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .login-form select:focus, .login-form input:focus, .login-form button:focus {
+      border: 1.5px solid #ff5f5f;
+    }
+    .login-form button {
+      background: #d11717;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      margin-top: 0.5em;
+      transition: background 0.2s;
+    }
+    .login-form button:hover {
+      background: #d6dcdd;
+      color: #181c22;
+    }
+    .login-success {
+      color: #e20b0b;
+      font-size: 1.1em;
+      margin-top: 1.5em;
+      font-family: inherit;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 700px) {
+      #arch-login {
+        flex-direction: column;
+        align-items: center;
+        min-width: unset;
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        gap: 1.2rem;
       }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
+      .ascii-art {
+        font-size: 0.95em;
       }
     }
   </style>
 </head>
 <body>
-  <div id="enter-overlay">
-    <h1>Click to Enter</h1>
+  <div id="arch-login">
+    <div class="ascii-art" style="color:#f50505; text-shadow: 0 0 8px #f00b0baa; font-weight:bold;">
+      <pre style="font-size:1.1em;line-height:1.05;">
+        
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣤
+⣠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣶⣿⠛
+⠿⣿⣦⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣰⣾⣿⣿⣿⣟⠀
+⠀⢿⣿⣿⣿⣿⣾⣶⣄⣀⣀⣀⣀⣤⣠⣼⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀
+⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⣁⠀⢀⠙⣿⣿⣿⣿⣿⡿⠇⠀
+⠀⠀⠙⠿⢿⣿⣿⣿⣿⣿⣿⣧⣏⣀⣨⣽⠿⢿⣿⣿⣿⡄⠀⠀
+⠀⠀⠀⠀⣿⣿⣿⣿⡿⢋⠁⠈⠉⠙⠋⠀⠀⣠⡎⢻⣿⡷⠀⠀
+⠀⠀⠀⠀⢻⣿⣿⣿⠃⢸⣿⠆⠀⠀⣀⠀⠀⠻⠇⠀⣿⠃⠀⠀
+⠀⠀⠀⠀⠈⠻⣿⣿⣇⠀⠁⠀⠀⠨⠉⠂⠀⠀⢀⡼⠃⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣌⣿⣿⣷⣦⣤⣤⣤⣤⣤⣶⣾⣯⠤⡄⠀⠀⠀
+⠀⠀⠀⠀⠀⠰⠾⡿⠉⡹⣿⣿⡿⠹⢿⣿⢧⢈⡏⠷⠁⠀⠀⠀
+⠀⠀⠀⠀⣤⣤⣤⡗⠀⡱⣩⠇⠀⠀⠀⠐⠞⣈⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠿⣿⣷⣭⣿⠀⠀⠀⢀⠀⠀⠀⢸⠃⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠉⢩⡏⠀⠀⠀⣾⡇⠀⠀⠈⣳⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠓⠒⠒⠚⠁⠉⠙⠛⠋⠀
+      <div style="text-align:center;font-size:1em;color:#ca0e0e;font-weight:bold;margin-top:-0.5em;letter-spacing:0.1em;">
+        1800
+      </div>
+  </pre>
+    </div>
+    <div>
+      <div class="neofetch-info">
+        <span style="color:#ca0e0e;font-weight:bold;">1800 OS</span> (Arch Linux x86_64)<br>
+        <span style="color:#ca0e0e;">Host</span>: 1800-VM<br>
+        <span style="color:#ca0e0e;">Kernel</span>: 6.6.6-arch1-800<br>
+        <span style="color:#ca0e0e;">Uptime</span>: 1 hour, 8 mins<br>
+        <span style="color:#ca0e0e;">Packages</span>: 1800 (pacman)<br>
+        <span style="color:#ca0e0e;">Shell</span>: bash 5.2.15<br>
+        <span style="color:#ca0e0e;">Resolution</span>: 1800x800<br>
+        <span style="color:#ca0e0e;">DE</span>: 1800WM<br>
+        <span style="color:#ca0e0e;">Theme</span>: ArchDark<br>
+        <span style="color:#ca0e0e;">CPU</span>: 1-800 Core™ i7-1800K (8) @ 4.20GHz<br>
+        <span style="color:#ca0e0e;">GPU</span>: NVIDIA RTX 1800<br>
+        <span style="color:#ca0e0e;">Memory</span>: 1800MiB / 8000MiB<br>
+      </div>
+      <form class="login-form" id="loginForm" autocomplete="off">
+        <label for="userSelect">1800 OS login:</label>
+        <select id="userSelect">
+          <option value="kyle">Kyle</option>
+          <option value="noah">Noah</option>
+          <option value="proxy">Proxy</option>
+        </select>
+        <button type="submit">Login</button>
+      </form>
+      <div class="login-success" id="loginSuccess" style="display:none;"></div>
+    </div>
   </div>
-  <header>
-    <img class="angel swing" src="logo.png" alt="Angel Symbol (rope at top)" />
-  </header>
-  <div class="container">
-    <h1>『1』-『8』『0』『0』</h1>
-   
-    <h2>𝚛𝚘𝚜𝚝𝚎𝚛</h2>
-
-    <hr />
-    <ul>
-      <li>Kyle</li>
-      <li>Noah</li>
-      <li>Crashout</li>
-      <li>Harm</li>
-    </ul>
-    <footer>
-      <p>&copy; 2025 1-800. All rights reserved.</p>
-      <p>noah inc</p>
-    </footer>
-  </div>
-  <audio id="background-music" src="Nope your too late i already died.mp3" loop></audio>
   <script>
-    document.getElementById('enter-overlay').addEventListener('click', function() {
-      this.classList.add('fade-out');
-      var audio = document.getElementById('background-music');
-      audio.play();
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('userSelect').value;
+
+      const msg = document.getElementById('loginSuccess');
+      msg.textContent = `Welcome, ${user.charAt(0).toUpperCase() + user.slice(1)}! Starting session...`;
+      msg.style.display = 'block';
       setTimeout(() => {
-        this.remove();
-      }, 1000);
+        window.location.href = user + '.html';
+      }, 900);
     });
-
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.textContent = '❄';
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      document.body.appendChild(snowflake);
-      setTimeout(() => {
-        snowflake.remove();
-      }, 10000);
-    }
-
-    setInterval(createSnowflake, 300);
   </script>
 </body>
 </html>
