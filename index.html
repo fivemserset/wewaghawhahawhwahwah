@@ -1,136 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crucify.ru</title>
-    <meta name="darkreader-lock"> 
-    <link rel="preload" href="logo.apng" as="image">
-    <link rel="preload" href="cruccify.jpg" as="image">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  </head>
-  <body class="center-screen wallpaper">
-    <div class="snow-container">
-      <div class="snow-layer layer-1"></div>
-      <div class="snow-layer layer-2"></div>
-      <div class="snow-layer layer-3"></div>
-      <div class="snow-layer layer-4"></div>
-      <div class="snow-layer layer-5"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      font-size: 4rem;
+      z-index: 1;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    audio {
+      z-index: 1;
+      outline: none;
+      margin-top: 20px;
+    }
+    /* Snowflake style */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1.5rem;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Coming Soon</h1>
+  <audio controls>
+    <source src="your-audio-file.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
-    <div class="click">
-      <h1 class="font">Click to enter</h1>
-    </div>
+  <script>
+    // Create snowflakes periodically
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄'; // Unicode snowflake character
 
-    <div class="main-content">
-      <div class="entered">
-        <div class="intial-container">
-          <div class="box-contain">
-            <div class="box-brrr">
-              <img id="kaedepfp" class="pfp grayscale" /><br />
-              <h3
-                class="font"
-                style="display: inline-block; background-image: url('sparkles.gif')"
-              >
-                Taylor
-              </h3>
-	    </div>
-            <div class="box-brrr">
-              <img id="chelseapfp" class="pfp grayscale" /><br />
-              <h3
-                class="font"
-                style="display: inline-block; background-image: url('sparkles.gif')"
-              >
-                Proxy
-              </h3>
-	    </div>
-	    <div class="box-brrr">
-	      <img id="wymzopfp" class="pfp grayscale" /><br />
-	      <h3
-            class="font"
-            style="display: inline-block; background-image: url('sparkles.gif')"
-            >
-            Noah
-	      </h3>
-	    </div>
-          <div class="box-brrr">
-	      <img id="ozupfp" class="pfp grayscale" /><br />
-	      <h3
-            class="font"
-            style="display: inline-block; background-image: url('sparkles.gif')"
-            >
-            Kyle
-	      </h3>
-	    </div>
-          </div>
-          <div class="text"><a href="https://1800.sh/">1800.sh</a></div>
-        </div>
-      </div>
-    </div>
+      // Random horizontal start position
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      // Random animation duration between 5 and 10 seconds
+      const duration = 5000 + Math.random() * 5000;
+      snowflake.style.animationDuration = duration + 'ms';
+      // Random opacity between 0.3 and 0.9
+      snowflake.style.opacity = Math.random() * 0.6 + 0.3;
 
-    <audio loop>
-      <source src="" id="audioPlaceholder" type="audio/ogg" />
-    </audio>
-    <script>(function(){const style=document.createElement('style');style.textContent=`.sparkle{pointer-events:none;position:fixed;font-family:monospace;font-weight:bold;font-size:8px;animation:sparkle-fade 0.8s forwards;z-index:1000;text-shadow:0 0 3px currentColor}@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0)}50%{opacity:0.8;transform:scale(0.9) translateY(-10px)}100%{opacity:0;transform:scale(0.6) translateY(-20px)}}`;document.head.appendChild(style);const sparkleChars=['✦','✧','✯','✬','✫','*'];const colors=['#ffffff','#000000'];let mouseX=0;let mouseY=0;let isMoving=false;let movementTimeout=null;let sparkleInterval=null;function createSparkle(){const sparkle=document.createElement('div');sparkle.className='sparkle';const offsetX=(Math.random()-0.5)*20;const offsetY=(Math.random()-0.5)*20;sparkle.style.left=(mouseX+offsetX)+'px';sparkle.style.top=(mouseY+offsetY)+'px';sparkle.style.color=colors[Math.floor(Math.random()*colors.length)];sparkle.textContent=sparkleChars[Math.floor(Math.random()*sparkleChars.length)];document.body.appendChild(sparkle);setTimeout(()=>{sparkle.remove()},800)}function updateMousePosition(e){mouseX=e.clientX;mouseY=e.clientY;if(!isMoving){isMoving=true;sparkleInterval=setInterval(createSparkle,50)}if(movementTimeout){clearTimeout(movementTimeout)}movementTimeout=setTimeout(()=>{isMoving=false;if(sparkleInterval){clearInterval(sparkleInterval);sparkleInterval=null}},100)}document.addEventListener('mousemove',updateMousePosition)})()</script>
-    <script>
-      $(document).ready(async function () {
-        async function fetchData(user) {
-          return $.ajax({
-            url: `https://ib2.dev/fetch.php?user=${user}&type=avatar`,
-            dataType: "json",
-          });
-        }
+      document.body.appendChild(snowflake);
 
-        const results = await Promise.allSettled([
-          fetchData("chelsea"),
-          fetchData("kaid"),
-          fetchData("wymzo"),
-	  fetchData("ozu")
-        ]);
+      // Remove snowflake after animation ends
+      setTimeout(() => {
+        snowflake.remove();
+      }, duration);
+    }
 
-        if (results[0].status === "fulfilled") {
-          $("#chelseapfp").attr("src", results[0].value);
-        }
-
-        if (results[1].status === "fulfilled") {
-          $("#kaedepfp").attr("src", results[1].value);
-        }
-	
-	if (results[2].status === "fulfilled") {
-	  $("#wymzopfp").attr("src", results[2].value);
-	}
-
-        if (results[3].status === "fulfilled") {
-	  $("#ozupfp").attr("src", results[3].value);
-	}
-
-        const clickDiv = $(".click");
-        const audio = $("audio")[0];
-        const mainContent = $(".main-content");
-
-        mainContent.css({ visibility: "hidden", opacity: 0 });
-
-        clickDiv.on("click", () => {
-	  if (audio.paused) {
-            audio.src = "dustcollector.ogg";
-            audio.volume = 0.35;
-            audio.play().catch((error) => {
-              console.error("Audio play failed:", error);
-            });
-          }
-          clickDiv.fadeOut(500, function () {
-            $(this).css("display", "none");
-
-            mainContent.css("visibility", "visible").animate(
-              {
-                opacity: 1,
-              },
-              1000
-            );
-          });
-        });
-      });
-    </script>
-  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'967b62a41f95a2a3',t:'MTc1Mzk0Njk3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    // Generate snowflakes every 200 milliseconds
+    setInterval(createSnowflake, 200);
+  </script>
+</body>
 </html>
