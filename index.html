@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming Soon...</title>
+  <title>Coming Soon</title>
   <!-- Import Poppins font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
   <style>
@@ -76,10 +76,30 @@
       border-color: #ccc;
     }
 
-    audio {
-      margin-top: 20px;
-      outline: none;
+    /* Click to enter button style */
+    #enter-button {
+      margin-top: 40px;
+      padding: 15px 40px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: black;
+      background: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
       z-index: 1;
+    }
+
+    #enter-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Hide audio controls */
+    audio {
+      display: none;
     }
 
     /* Snowflake style */
@@ -108,10 +128,15 @@
   <div class="text">
     <a href="https://1800.sh/">1800.sh</a>
   </div>
-  <audio controls autoplay muted>
+
+  <!-- Audio element with no controls, autoplay muted initially -->
+  <audio id="bg-audio" autoplay muted loop>
     <source src="your-audio-file.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Click to enter button -->
+  <button id="enter-button">Click to Enter</button>
 
   <script>
     // Snowflake creation script
@@ -133,6 +158,23 @@
     }
 
     setInterval(createSnowflake, 200);
+
+    const enterButton = document.getElementById('enter-button');
+    const bgAudio = document.getElementById('bg-audio');
+
+    enterButton.addEventListener('click', () => {
+      // Unmute and play audio on user interaction
+      bgAudio.muted = false;
+      bgAudio.play().catch(e => {
+        console.log('Audio playback failed:', e);
+      });
+
+      // Optionally: redirect to another page or hide the landing content
+      // Example: window.location.href = 'your-next-page.html';
+
+      // For demo: hide the button after clicking
+      enterButton.style.display = 'none';
+    });
   </script>
 </body>
 </html>
