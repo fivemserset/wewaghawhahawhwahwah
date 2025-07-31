@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming Soon</title>
+  <title>Coming Soon...</title>
+  <!-- Import Poppins font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -20,10 +22,11 @@
       position: relative;
     }
 
-    /* Moving glow inside text using background-clip */
+    /* Coming Soon text with moving black-and-white glow inside */
     h1 {
+      font-family: 'Poppins', sans-serif;
       font-size: 6rem;
-      font-weight: bold;
+      font-weight: 700;
       background: linear-gradient(
         270deg,
         black 0%,
@@ -48,6 +51,29 @@
       100% {
         background-position: 200% 50%;
       }
+    }
+
+    /* Style for the link container below the heading */
+    .text {
+      margin-top: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1.2rem;
+      user-select: none;
+      z-index: 1;
+    }
+
+    /* Link style */
+    .text a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid white;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .text a:hover {
+      color: #ccc;
+      border-color: #ccc;
     }
 
     audio {
@@ -79,6 +105,9 @@
 </head>
 <body>
   <h1>Coming Soon</h1>
+  <div class="text">
+    <a href="https://crucify.ru/">crucify.ru</a>
+  </div>
   <audio controls autoplay muted>
     <source src="your-audio-file.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
