@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming Soon...</title>
+  <title>Coming Soon</title>
   <!-- Import Poppins font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
   <style>
@@ -20,6 +20,14 @@
       color: white;
       text-align: center;
       position: relative;
+    }
+
+    /* Hide the main content initially */
+    #main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
     }
 
     /* Coming Soon text with moving black-and-white glow inside */
@@ -78,7 +86,6 @@
 
     /* Click to enter button style */
     #enter-button {
-      margin-top: 40px;
       padding: 15px 40px;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
@@ -90,7 +97,7 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s, color 0.3s;
-      z-index: 1;
+      z-index: 2;
     }
 
     #enter-button:hover {
@@ -124,22 +131,25 @@
   </style>
 </head>
 <body>
-  <h1>Coming Soon...</h1>
-  <div class="text">
-    <a href="https://1800.sh/">1800.sh</a>
-  </div>
-
-  <!-- Audio element with no controls, autoplay muted initially -->
-  <audio id="bg-audio" autoplay muted loop>
-    <source src="your-audio-file.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Click to enter button -->
+  <!-- Click to enter button - shown initially -->
   <button id="enter-button">Click to Enter</button>
 
+  <!-- Main content hidden initially -->
+  <div id="main-content">
+    <h1>Coming Soon</h1>
+    <div class="text">
+      <a href="https://crucify.ru/">crucify.ru</a>
+    </div>
+
+    <!-- Audio element with no controls, autoplay muted initially -->
+    <audio id="bg-audio" loop>
+      <source src="your-audio-file.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
   <script>
-    // Snowflake creation script
+    // Snowflake creation script (will start only after content shows)
     function createSnowflake() {
       const snowflake = document.createElement('div');
       snowflake.classList.add('snowflake');
@@ -157,23 +167,26 @@
       }, duration);
     }
 
-    setInterval(createSnowflake, 200);
-
     const enterButton = document.getElementById('enter-button');
+    const mainContent = document.getElementById('main-content');
     const bgAudio = document.getElementById('bg-audio');
+    let snowflakeInterval;
 
     enterButton.addEventListener('click', () => {
-      // Unmute and play audio on user interaction
+      // Hide button
+      enterButton.style.display = 'none';
+
+      // Show main content
+      mainContent.style.display = 'flex';
+
+      // Play and unmute audio
       bgAudio.muted = false;
       bgAudio.play().catch(e => {
         console.log('Audio playback failed:', e);
       });
 
-      // Optionally: redirect to another page or hide the landing content
-      // Example: window.location.href = 'your-next-page.html';
-
-      // For demo: hide the button after clicking
-      enterButton.style.display = 'none';
+      // Start snowflakes animation
+      snowflakeInterval = setInterval(createSnowflake, 200);
     });
   </script>
 </body>
