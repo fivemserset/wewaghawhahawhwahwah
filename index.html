@@ -22,12 +22,19 @@
       position: relative;
     }
 
-    /* Hide the main content initially */
+    /* Initially hidden main content for fade-in */
     #main-content {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
       flex-direction: column;
       align-items: center;
       z-index: 1;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #main-content.visible {
+      opacity: 1;
+      visibility: visible;
     }
 
     /* Coming Soon text with moving black-and-white glow inside */
@@ -84,7 +91,7 @@
       border-color: #ccc;
     }
 
-    /* Click to enter button style */
+    /* Click to enter button style with fade-out transition */
     #enter-button {
       padding: 15px 40px;
       font-family: 'Poppins', sans-serif;
@@ -96,12 +103,18 @@
       border-radius: 30px;
       cursor: pointer;
       user-select: none;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color 0.3s, color 0.3s, opacity 1s ease;
       z-index: 2;
+      opacity: 1;
     }
 
     #enter-button:hover {
       background-color: #e0e0e0;
+    }
+
+    #enter-button.fade-out {
+      opacity: 0;
+      pointer-events: none;
     }
 
     /* Hide audio controls */
@@ -134,14 +147,14 @@
   <!-- Click to enter button - shown initially -->
   <button id="enter-button">Click to Enter</button>
 
-  <!-- Main content hidden initially -->
+  <!-- Main content rendered but initially hidden -->
   <div id="main-content">
     <h1>Coming Soon</h1>
     <div class="text">
       <a href="https://crucify.ru/">crucify.ru</a>
     </div>
 
-    <!-- Audio element with no controls, autoplay muted initially -->
+    <!-- Audio element with no controls, looped -->
     <audio id="bg-audio" loop>
       <source src="your-audio-file.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -173,20 +186,25 @@
     let snowflakeInterval;
 
     enterButton.addEventListener('click', () => {
-      // Hide button
-      enterButton.style.display = 'none';
+      // Start fade out on button
+      enterButton.classList.add('fade-out');
 
-      // Show main content
-      mainContent.style.display = 'flex';
+      // After fade out completes, hide button, show content and start audio/snowflakes
+      setTimeout(() => {
+        enterButton.style.display = 'none';
 
-      // Play and unmute audio
-      bgAudio.muted = false;
-      bgAudio.play().catch(e => {
-        console.log('Audio playback failed:', e);
-      });
+        // Show main content with fade-in
+        mainContent.classList.add('visible');
 
-      // Start snowflakes animation
-      snowflakeInterval = setInterval(createSnowflake, 200);
+        // Play and unmute audio
+        bgAudio.muted = false;
+        bgAudio.play().catch(e => {
+          console.log('Audio playback failed:', e);
+        });
+
+        // Start snowflakes animation
+        snowflakeInterval = setInterval(createSnowflake, 200);
+      }, 1000); // match CSS transition duration for opacity
     });
   </script>
 </body>
