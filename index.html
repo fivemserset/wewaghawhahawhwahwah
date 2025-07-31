@@ -7,10 +7,31 @@
   <!-- Import Poppins font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
   <style>
+    /* Full page background divs */
+    #bg-before, #bg-after {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 0;
+      transition: opacity 1s ease;
+    }
+
+    #bg-before {
+      background-image: url('your-before-background.png');
+      opacity: 1;
+    }
+
+    #bg-after {
+      background-image: url('your-after-background.png');
+      opacity: 0;
+      pointer-events: none; /* Just in case */
+    }
+
     body {
       margin: 0;
       height: 100vh;
-      background: black;
       overflow: hidden;
       display: flex;
       justify-content: center;
@@ -20,6 +41,8 @@
       color: white;
       text-align: center;
       position: relative;
+      background: black; /* fallback */
+      z-index: 1; /* above backgrounds */
     }
 
     /* Initially hidden main content for fade-in */
@@ -28,7 +51,7 @@
       visibility: hidden;
       flex-direction: column;
       align-items: center;
-      z-index: 1;
+      z-index: 2;
       transition: opacity 1s ease, visibility 1s ease;
     }
 
@@ -56,7 +79,7 @@
       animation: moveGlow 5s linear infinite;
       user-select: none;
       margin: 0;
-      z-index: 1;
+      z-index: 3;
     }
 
     @keyframes moveGlow {
@@ -75,7 +98,7 @@
       font-weight: 500;
       font-size: 1.2rem;
       user-select: none;
-      z-index: 1;
+      z-index: 3;
     }
 
     /* Link style */
@@ -91,7 +114,7 @@
       border-color: #ccc;
     }
 
-    /* Click to enter button style with fade-out transition */
+    /* Click to enter button */
     #enter-button {
       padding: 15px 40px;
       font-family: 'Poppins', sans-serif;
@@ -104,8 +127,9 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s, color 0.3s, opacity 1s ease;
-      z-index: 2;
+      z-index: 3;
       opacity: 1;
+      position: relative;
     }
 
     #enter-button:hover {
@@ -120,6 +144,7 @@
     /* Hide audio controls */
     audio {
       display: none;
+      z-index: 3;
     }
 
     /* Snowflake style */
@@ -144,6 +169,10 @@
   </style>
 </head>
 <body>
+  <!-- Background images -->
+  <div id="bg-before"></div>
+  <div id="bg-after"></div>
+
   <!-- Click to enter button - shown initially -->
   <button id="enter-button">Click to Enter</button>
 
@@ -154,7 +183,7 @@
       <a href="https://crucify.ru/">crucify.ru</a>
     </div>
 
-    <!-- Audio element with no controls, looped -->
+    <!-- Audio element -->
     <audio id="bg-audio" loop>
       <source src="your-audio-file.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -162,7 +191,6 @@
   </div>
 
   <script>
-    // Snowflake creation script (will start only after content shows)
     function createSnowflake() {
       const snowflake = document.createElement('div');
       snowflake.classList.add('snowflake');
@@ -183,13 +211,19 @@
     const enterButton = document.getElementById('enter-button');
     const mainContent = document.getElementById('main-content');
     const bgAudio = document.getElementById('bg-audio');
+    const bgBefore = document.getElementById('bg-before');
+    const bgAfter = document.getElementById('bg-after');
     let snowflakeInterval;
 
     enterButton.addEventListener('click', () => {
-      // Start fade out on button
+      // Fade out enter button
       enterButton.classList.add('fade-out');
 
-      // After fade out completes, hide button, show content and start audio/snowflakes
+      // Transition backgrounds: fade out before bg, fade in after bg
+      bgBefore.style.opacity = '0';
+      bgAfter.style.opacity = '1';
+
+      // After button fade transition, show content and start audio/snow
       setTimeout(() => {
         enterButton.style.display = 'none';
 
@@ -202,9 +236,9 @@
           console.log('Audio playback failed:', e);
         });
 
-        // Start snowflakes animation
+        // Start snowflakes
         snowflakeInterval = setInterval(createSnowflake, 200);
-      }, 1000); // match CSS transition duration for opacity
+      }, 1000); // match CSS transition duration
     });
   </script>
 </body>
