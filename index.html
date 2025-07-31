@@ -20,50 +20,33 @@
       position: relative;
     }
 
+    /* Moving glow inside text using background-clip */
     h1 {
-      font-size: 5rem;
+      font-size: 6rem;
       font-weight: bold;
-      color: white;
-      animation: liquidGlow 3s linear infinite;
+      background: linear-gradient(
+        270deg,
+        black 0%,
+        white 25%,
+        black 50%,
+        white 75%,
+        black 100%
+      );
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: moveGlow 5s linear infinite;
       user-select: none;
+      margin: 0;
+      z-index: 1;
     }
 
-    @keyframes liquidGlow {
-      0%, 100% {
-        text-shadow:
-          0 0 5px #fff,
-          0 0 15px #ccc,
-          0 0 20px #bbb,
-          0 0 30px #aaa,
-          0 0 40px #999,
-          0 0 50px #888;
+    @keyframes moveGlow {
+      0% {
+        background-position: 0% 50%;
       }
-      25% {
-        text-shadow:
-          2px 0 7px #fff,
-          -2px 0 15px #ccc,
-          1px 1px 22px #bbb,
-          -1px -1px 32px #aaa,
-          0 2px 45px #999,
-          0 -2px 55px #888;
-      }
-      50% {
-        text-shadow:
-          0 2px 8px #fff,
-          0 -2px 17px #ccc,
-          2px 0 25px #bbb,
-          -2px 0 35px #aaa,
-          1px 2px 48px #999,
-          -1px -2px 58px #888;
-      }
-      75% {
-        text-shadow:
-          -2px 0 7px #fff,
-          2px 0 15px #ccc,
-          -1px -1px 22px #bbb,
-          1px 1px 32px #aaa,
-          0 -2px 45px #999,
-          0 2px 55px #888;
+      100% {
+        background-position: 200% 50%;
       }
     }
 
@@ -73,7 +56,7 @@
       z-index: 1;
     }
 
-    /* Snowflake style (from previous) */
+    /* Snowflake style */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -96,13 +79,13 @@
 </head>
 <body>
   <h1>Coming Soon</h1>
-  <audio controls>
+  <audio controls autoplay muted>
     <source src="your-audio-file.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
   <script>
-    // Snowflake creation script from before
+    // Snowflake creation script
     function createSnowflake() {
       const snowflake = document.createElement('div');
       snowflake.classList.add('snowflake');
