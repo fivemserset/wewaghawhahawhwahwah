@@ -29,25 +29,25 @@
       position: relative;
     }
 
-    /* Profile picture + hover animation */
+    /* Profile picture + hover animation (black glow) */
     .profile-pic {
       width: 180px;
       height: 180px;
       border-radius: 0;
       object-fit: cover;
       border: 4px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       position: relative;
       z-index: 0;
       transition: all 0.3s ease-in-out;
     }
 
     .profile-pic:hover {
-      border-color: #00ffff;
+      border-color: #000;
       box-shadow:
-        0 0 10px #00ffff,
-        0 0 20px #00ffff,
-        0 0 40px #00ffff;
+        0 0 15px #000,
+        0 0 30px #222,
+        0 0 50px #444;
       transform: scale(1.05) rotate(1.5deg);
       animation: borderPulse 1s infinite alternate;
     }
@@ -286,7 +286,7 @@
       snowflake.classList.add('snowflake');
       snowflake.textContent = '❄';
       snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = 3 + Math.random() * 6 + 's'; // faster snow
+      snowflake.style.animationDuration = 3 + Math.random() * 6 + 's';
       snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
       snowflake.style.opacity = 0.5 + Math.random() * 0.5;
       snowflake.style.animationDelay = Math.random() * 10 + 's';
