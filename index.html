@@ -49,7 +49,7 @@
       z-index: 2;
     }
 
-    /* 1-800 glowing text */
+    /* 1-800 appear and fade to black/white */
     .tag {
       position: absolute;
       top: -70px;
@@ -57,28 +57,38 @@
       transform: translateX(-50%);
       font-size: 22px;
       font-weight: bold;
-      color: #fff;
+      color: #00ffff;
       letter-spacing: 2px;
       text-shadow:
-        0 0 5px #00ffff,
-        0 0 10px #00ffff,
-        0 0 15px #00ffff;
-      animation: glow 2.5s ease-in-out infinite alternate;
+        0 0 8px #00ffff,
+        0 0 15px #00ffff,
+        0 0 25px #00ffff;
+      opacity: 0;
+      animation: appearFade 3.5s ease-in-out forwards;
       z-index: 3;
     }
 
-    @keyframes glow {
-      from {
+    @keyframes appearFade {
+      0% {
+        opacity: 0;
+        color: #00ffff;
         text-shadow:
-          0 0 5px #00ffff,
-          0 0 15px #00ffff,
-          0 0 30px #00ffff;
+          0 0 10px #00ffff,
+          0 0 20px #00ffff,
+          0 0 40px #00ffff;
       }
-      to {
+      40% {
+        opacity: 1;
+        color: #00ffff;
         text-shadow:
-          0 0 10px #66ffff,
-          0 0 25px #66ffff,
-          0 0 40px #66ffff;
+          0 0 10px #00ffff,
+          0 0 25px #00ffff,
+          0 0 50px #00ffff;
+      }
+      100% {
+        opacity: 1;
+        color: #cccccc;
+        text-shadow: none;
       }
     }
 
