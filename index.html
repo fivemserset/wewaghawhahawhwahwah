@@ -17,38 +17,29 @@
       overflow: hidden;
     }
 
-    /* Smooth loading screen overlay */
+    /* Full black fade-in and fade-out overlay */
     #loading-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, #000 70%, #111);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-size: 26px;
-      letter-spacing: 2px;
+      background: black;
       z-index: 9999;
-      opacity: 0;
-      animation: fadeIn 1.5s ease-out forwards, fadeOut 2s ease-in forwards 5s;
+      opacity: 1;
+      transition: opacity 2.5s ease;
     }
 
+    /* Optional animated "Loading" text */
     #loading-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 26px;
+      color: white;
+      letter-spacing: 2px;
       animation: blink 1.2s infinite;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; }
-      to { opacity: 0; visibility: hidden; }
     }
 
     @keyframes blink {
@@ -68,7 +59,7 @@
       position: relative;
     }
 
-    /* Profile picture with black glow on hover */
+    /* Profile picture with black glow hover */
     .profile-pic {
       width: 180px;
       height: 180px;
@@ -81,7 +72,7 @@
     .profile-pic:hover {
       border-color: #000;
       box-shadow:
-        0 0 20px #000,
+        0 0 15px #000,
         0 0 30px #222,
         0 0 50px #444;
       transform: scale(1.05) rotate(1.5deg);
@@ -174,7 +165,7 @@
       100% { transform: translateY(100vh) rotate(360deg); }
     }
 
-    /* Snowman styling */
+    /* Snowman */
     .snowman {
       position: fixed;
       bottom: 20px;
@@ -194,23 +185,9 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
 
-    .snowman .bottom {
-      width: 80px;
-      height: 80px;
-    }
-
-    .snowman .middle {
-      width: 60px;
-      height: 60px;
-      margin-top: -10px;
-    }
-
-    .snowman .head {
-      width: 40px;
-      height: 40px;
-      margin-top: -10px;
-      position: relative;
-    }
+    .snowman .bottom { width: 80px; height: 80px; }
+    .snowman .middle { width: 60px; height: 60px; margin-top: -10px; }
+    .snowman .head   { width: 40px; height: 40px; margin-top: -10px; position: relative; }
 
     .eye {
       position: absolute;
@@ -257,11 +234,10 @@
       border-radius: 2px;
       margin-top: -1px;
     }
-
   </style>
 </head>
 <body>
-  <!-- Smooth Loading Screen -->
+  <!-- Smooth black screen fade -->
   <div id="loading-screen">
     <div id="loading-text">Loading...</div>
   </div>
@@ -303,7 +279,7 @@
   </div>
 
   <script>
-    // Snowflakes
+    // Add snow
     const snowContainer = document.createDocumentFragment();
     for (let i = 0; i < 60; i++) {
       const snowflake = document.createElement('div');
@@ -317,6 +293,15 @@
       snowContainer.appendChild(snowflake);
     }
     document.body.appendChild(snowContainer);
+
+    // Fade-out the black overlay
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 2500);
+      }, 2000);
+    });
   </script>
 </body>
 </html>
