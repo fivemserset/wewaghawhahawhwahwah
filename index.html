@@ -14,30 +14,60 @@
       font-family: Arial, sans-serif;
       background: url('73e63f75bf550561054671836b5479b2.gif') no-repeat center center fixed;
       background-size: cover;
+      overflow: hidden;
     }
 
     .wrapper {
       display: flex;
       gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile {
+      text-align: center;
+      position: relative;
     }
 
     .profile-pic {
       width: 180px;
       height: 180px;
       border-radius: 0;
-      background: #ccc;
       object-fit: cover;
       border: 4px solid #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 0;
     }
 
-    .profile { text-align: center; }
-    .name { font-size: 20px; margin-top: 10px; font-weight: bold; color: #fff; }
-    .telegram { font-size: 16px; color: #fff; }
+    .santa-hat {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      width: 120px;
+      transform: translateX(-50%) rotate(-10deg);
+      z-index: 2;
+    }
 
-    .contact { display: block; margin-top: 8px; font-size: 16px; color: #00aaff; text-decoration: none; }
+    .name {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .contact {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+      color: #00aaff;
+      text-decoration: none;
+    }
+
     .contact:hover { text-decoration: underline; }
-  .static {
+
+    /* Static effect */
+    .static {
       position: fixed;
       top: 0;
       left: 0;
@@ -49,24 +79,61 @@
       mix-blend-mode: screen;
       z-index: 2;
     }
+
+    /* Snow animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1em;
+      opacity: 0.9;
+      animation: fall 10s linear infinite;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
   </style>
 </head>
 <body>
   <div class="wrapper">
     <div class="profile">
+      <img class="santa-hat" src="santa-hat.png" alt="Santa Hat" />
       <img class="profile-pic" src="c7e25407bfff02889ad20e32192ba1c1.jpg" alt="Profile 1" />
       <div class="name">Noah</div>
       <a class="contact" href="https://t.me/cutecat19" target="_blank">tele</a>
     </div>
 
     <div class="profile">
+      <img class="santa-hat" src="santa-hat.png" alt="Santa Hat" />
       <img class="profile-pic" src="65fa0c24287962f230f222fa485df3fd.jpg" alt="Profile 2" />
       <div class="name">Mishka</div>
       <a class="contact" href="https://t.me/scarycat9" target="_blank">tele</a>
     </div>
   </div>
+
   <audio id="bg-audio" src="song.mp3" autoplay loop></audio>
   <div class="static"></div>
+
+  <!-- Simple falling snowflakes using JS -->
+  <script>
+    const snowContainer = document.createDocumentFragment();
+    for (let i = 0; i < 60; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '❄';
+      snowflake.style.left = Math.random() * 100 + 'vw';
+      snowflake.style.animationDuration = 5 + Math.random() * 10 + 's';
+      snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
+      snowflake.style.opacity = 0.5 + Math.random() * 0.5;
+      snowflake.style.animationDelay = Math.random() * 10 + 's';
+      snowContainer.appendChild(snowflake);
+    }
+    document.body.appendChild(snowContainer);
+  </script>
 </body>
 </html>
-
