@@ -66,7 +66,6 @@
 
     .contact:hover { text-decoration: underline; }
 
-    /* Static effect */
     .static {
       position: fixed;
       top: 0;
@@ -97,6 +96,90 @@
       100% { transform: translateY(100vh) rotate(360deg); }
     }
 
+    /* Snowman styling */
+    .snowman {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 120px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .snowman .ball {
+      background: white;
+      border-radius: 50%;
+      border: 2px solid #ddd;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .snowman .bottom {
+      width: 80px;
+      height: 80px;
+    }
+
+    .snowman .middle {
+      width: 60px;
+      height: 60px;
+      margin-top: -10px;
+    }
+
+    .snowman .head {
+      width: 40px;
+      height: 40px;
+      margin-top: -10px;
+      position: relative;
+    }
+
+    /* Eyes and nose */
+    .eye {
+      position: absolute;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      background: black;
+      border-radius: 50%;
+    }
+
+    .eye.left { left: 8px; }
+    .eye.right { right: 8px; }
+
+    .nose {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%) rotate(15deg);
+      width: 10px;
+      height: 4px;
+      background: orange;
+      border-radius: 2px;
+    }
+
+    /* Hat */
+    .hat {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hat .top {
+      width: 30px;
+      height: 12px;
+      background: black;
+      border-radius: 2px 2px 0 0;
+      margin: 0 auto;
+    }
+    .hat .brim {
+      width: 50px;
+      height: 6px;
+      background: black;
+      border-radius: 2px;
+      margin-top: -1px;
+    }
+
   </style>
 </head>
 <body>
@@ -119,7 +202,21 @@
   <audio id="bg-audio" src="song.mp3" autoplay loop></audio>
   <div class="static"></div>
 
-  <!-- Simple falling snowflakes using JS -->
+  <!-- Snowman -->
+  <div class="snowman">
+    <div class="head ball">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="hat">
+        <div class="top"></div>
+        <div class="brim"></div>
+      </div>
+    </div>
+    <div class="middle ball"></div>
+    <div class="bottom ball"></div>
+  </div>
+
   <script>
     const snowContainer = document.createDocumentFragment();
     for (let i = 0; i < 60; i++) {
@@ -137,4 +234,3 @@
   </script>
 </body>
 </html>
-
