@@ -49,6 +49,39 @@
       z-index: 2;
     }
 
+    /* 1-800 glowing text */
+    .tag {
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #00ffff;
+      animation: glow 2.5s ease-in-out infinite alternate;
+      z-index: 3;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 5px #00ffff,
+          0 0 15px #00ffff,
+          0 0 30px #00ffff;
+      }
+      to {
+        text-shadow:
+          0 0 10px #66ffff,
+          0 0 25px #66ffff,
+          0 0 40px #66ffff;
+      }
+    }
+
     .name {
       font-size: 20px;
       margin-top: 10px;
@@ -134,7 +167,6 @@
       position: relative;
     }
 
-    /* Eyes and nose */
     .eye {
       position: absolute;
       top: 10px;
@@ -158,13 +190,13 @@
       border-radius: 2px;
     }
 
-    /* Hat */
     .hat {
       position: absolute;
       top: -16px;
       left: 50%;
       transform: translateX(-50%);
     }
+
     .hat .top {
       width: 30px;
       height: 12px;
@@ -172,6 +204,7 @@
       border-radius: 2px 2px 0 0;
       margin: 0 auto;
     }
+
     .hat .brim {
       width: 50px;
       height: 6px;
@@ -185,6 +218,7 @@
 <body>
   <div class="wrapper">
     <div class="profile">
+      <div class="tag">1-800</div>
       <img class="santa-hat" src="giphy.gif" alt="Santa Hat" />
       <img class="profile-pic" src="c7e25407bfff02889ad20e32192ba1c1.jpg" alt="Profile 1" />
       <div class="name">Noah</div>
@@ -192,6 +226,7 @@
     </div>
 
     <div class="profile">
+      <div class="tag">1-800</div>
       <img class="santa-hat" src="giphyc a.gif" alt="Santa Hat" />
       <img class="profile-pic" src="65fa0c24287962f230f222fa485df3fd.jpg" alt="Profile 2" />
       <div class="name">Mishka</div>
@@ -224,14 +259,13 @@
       snowflake.classList.add('snowflake');
       snowflake.textContent = '❄';
       snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.animationDuration = 5 + Math.random() * 10 + 's';
+      snowflake.style.animationDuration = 3 + Math.random() * 6 + 's'; // faster snow
       snowflake.style.fontSize = 10 + Math.random() * 20 + 'px';
       snowflake.style.opacity = 0.5 + Math.random() * 0.5;
-      snowflake.style.animationDuration = 5 + Math.random() * 10 + 's';
+      snowflake.style.animationDelay = Math.random() * 10 + 's';
       snowContainer.appendChild(snowflake);
     }
     document.body.appendChild(snowContainer);
   </script>
 </body>
 </html>
-
