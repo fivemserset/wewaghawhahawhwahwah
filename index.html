@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,26 +16,29 @@
       background-size: cover;
       overflow: hidden;
     }
-    
+
+    /* Top center text link (bigger, lower, black glow) */
     .top-link {
       position: fixed;
-      top: 20px;
+      top: 60px;
       left: 50%;
       transform: translateX(-50%);
-      color: white;
-      font-size: 22px;
-      letter-spacing: 1px;
+      color: #fff;
+      font-size: 30px;
+      letter-spacing: 1.5px;
       text-decoration: none;
       font-weight: bold;
       z-index: 10;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
+      text-shadow: 0 0 5px #000, 0 0 10px #111, 0 0 15px #222;
+      transition: text-shadow 0.4s ease, transform 0.3s ease;
     }
 
     .top-link:hover {
-      color: #00ffff;
-      text-shadow: 0 0 8px #00ffff, 0 0 15px #00ffff;
+      text-shadow: 0 0 10px #000, 0 0 20px #111, 0 0 30px #222;
+      transform: translateX(-50%) scale(1.05);
     }
 
+    /* Black fade screen */
     #loading-screen {
       position: fixed;
       top: 0;
@@ -63,12 +66,9 @@
     .profile-pic {
       width: 180px;
       height: 180px;
-      border-radius: 0;
       object-fit: cover;
       border: 4px solid #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      position: relative;
-      z-index: 0;
       transition: all 0.3s ease-in-out;
     }
 
@@ -166,8 +166,10 @@
   </style>
 </head>
 <body>
-  <a href="https://t.me/ae_hof" class="top-link" target="_blank">AE HOF</a>
+  <!-- Top Center Link -->
+  <a href="https://example.com" class="top-link" target="_blank">Visit My Link</a>
 
+  <!-- Black Fade Screen -->
   <div id="loading-screen"></div>
 
   <div class="wrapper">
@@ -192,6 +194,7 @@
   <div class="static"></div>
 
   <script>
+    // Snow effect
     const snowContainer = document.createDocumentFragment();
     for (let i = 0; i < 60; i++) {
       const snowflake = document.createElement('div');
@@ -206,6 +209,7 @@
     }
     document.body.appendChild(snowContainer);
 
+    // Fade out loading screen
     window.addEventListener('load', () => {
       const loader = document.getElementById('loading-screen');
       loader.style.opacity = '0';
