@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Two Profile Pictures</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f8f8f8;
-        }
-        .profile-container {
-            display: flex;
-            gap: 40px;
-        }
-        .profile-pic {
-            border: 4px solid #4a90e2;
-            border-radius: 16px;
-            padding: 5px;
-            background: #fff;
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two Profile Pictures</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ececec;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+      display: flex;
+      gap: 50px;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #ccc;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
 <body>
-    <div class="profile-container">
-        <img class="profile-pic" src="https://raw.githubusercontent.com/yourusername/your-repo/main/images/my-pic1.jpg" alt="Profile 1">
-        <img class="profile-pic" src="https://raw.githubusercontent.com/yourusername/your-repo/main/images/my-pic2.jpg" alt="Profile 2">
-    </div>
+  <div class="wrapper">
+    <img class="profile-pic" src="" alt="Profile 1" />
+    <img class="profile-pic" src="" alt="Profile 2" />
+  </div>
 </body>
 </html>
