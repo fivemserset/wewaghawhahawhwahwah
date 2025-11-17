@@ -17,41 +17,43 @@
       overflow: hidden;
     }
 
-    /* Loading screen overlay */
+    /* Smooth loading screen overlay */
     #loading-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: black;
+      background: radial-gradient(circle, #000 70%, #111);
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       font-size: 26px;
       letter-spacing: 2px;
       z-index: 9999;
-      flex-direction: column;
-      animation: fadeOut 1s ease forwards;
-      animation-delay: 5s; /* stays 5 seconds before fading */
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards, fadeOut 2s ease-in forwards 5s;
     }
 
-    #loading-screen::after {
-      content: "Loading...";
-      animation: blink 1s infinite;
+    #loading-text {
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; visibility: hidden; }
     }
 
     @keyframes blink {
       0%, 50%, 100% { opacity: 1; }
       25%, 75% { opacity: 0.3; }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
 
     .wrapper {
@@ -70,23 +72,20 @@
     .profile-pic {
       width: 180px;
       height: 180px;
-      border-radius: 0;
       object-fit: cover;
       border: 4px solid #fff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: all 0.3s ease-in-out;
-      position: relative;
-      z-index: 0;
     }
 
     .profile-pic:hover {
       border-color: #000;
       box-shadow:
-        0 0 15px #000,
+        0 0 20px #000,
         0 0 30px #222,
         0 0 50px #444;
       transform: scale(1.05) rotate(1.5deg);
-      animation: borderPulse 1s infinite alternate;
+      animation: borderPulse 1.5s infinite alternate;
     }
 
     @keyframes borderPulse {
@@ -123,27 +122,9 @@
     }
 
     @keyframes appearFade {
-      0% {
-        opacity: 0;
-        color: #00ffff;
-        text-shadow:
-          0 0 10px #00ffff,
-          0 0 20px #00ffff,
-          0 0 40px #00ffff;
-      }
-      40% {
-        opacity: 1;
-        color: #00ffff;
-        text-shadow:
-          0 0 10px #00ffff,
-          0 0 25px #00ffff,
-          0 0 50px #00ffff;
-      }
-      100% {
-        opacity: 1;
-        color: #cccccc;
-        text-shadow: none;
-      }
+      0% { opacity: 0; color: #00ffff; }
+      40% { opacity: 1; color: #00ffff; }
+      100% { opacity: 1; color: #cccccc; text-shadow: none; }
     }
 
     .name {
@@ -280,8 +261,10 @@
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div id="loading-screen"></div>
+  <!-- Smooth Loading Screen -->
+  <div id="loading-screen">
+    <div id="loading-text">Loading...</div>
+  </div>
 
   <div class="wrapper">
     <div class="profile">
@@ -320,7 +303,7 @@
   </div>
 
   <script>
-    // Add falling snow
+    // Snowflakes
     const snowContainer = document.createDocumentFragment();
     for (let i = 0; i < 60; i++) {
       const snowflake = document.createElement('div');
@@ -334,17 +317,6 @@
       snowContainer.appendChild(snowflake);
     }
     document.body.appendChild(snowContainer);
-
-    // Remove loader after 5 seconds
-    window.onload = () => {
-      setTimeout(() => {
-        const loader = document.getElementById('loading-screen');
-        loader.style.transition = 'opacity 3s ease';
-        loader.style.opacity = '0';
-        setTimeout(() => loader.remove(), 1000);
-      }, 3000);
-    };
   </script>
 </body>
 </html>
-
