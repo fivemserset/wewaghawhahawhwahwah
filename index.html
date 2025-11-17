@@ -1,241 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>L a t e r. . .</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
-  <style>
- 
-    #bg-before, #bg-after {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: 0;
-      transition: opacity 1s ease;
-    }
-
-    #bg-before {
-      background-image: url('your-before-background.png');
-      opacity: 1;
-    }
-
-    #bg-after {
-      background-image: url('your-after-background.png');
-      opacity: 0;
-      pointer-events: none; 
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      position: relative;
-      background: black;
-      z-index: 1; 
-    }
-    #main-content {
-      opacity: 0;
-      visibility: hidden;
-      flex-direction: column;
-      align-items: center;
-      z-index: 2;
-      transition: opacity 1s ease, visibility 1s ease;
-    }
-
-    #main-content.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 6rem;
-      font-weight: 700;
-      background: linear-gradient(
-        270deg,
-        black 0%,
-        white 25%,
-        black 50%,
-        white 75%,
-        black 100%
-      );
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: moveGlow 5s linear infinite;
-      user-select: none;
-      margin: 0;
-      z-index: 3;
-    }
-
-    @keyframes moveGlow {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 200% 50%;
-      }
-    }
-    .text {
-      margin-top: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 1.2rem;
-      user-select: none;
-      z-index: 3;
-    }
-    .text a {
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid white;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    .text a:hover {
-      color: #ccc;
-      border-color: #ccc;
-    }
-    #enter-button {
-      padding: 15px 40px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: black;
-      background: white;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s, color 0.3s, opacity 1s ease;
-      z-index: 3;
-      opacity: 1;
-      position: relative;
-    }
-
-    #enter-button:hover {
-      background-color: #e0e0e0;
-    }
-
-    #enter-button.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-    audio {
-      display: none;
-      z-index: 3;
-    }
-    .snowflake {
-      position: fixed;
-      top: -10px;
-      color: white;
-      font-size: 1.2rem;
-      user-select: none;
-      pointer-events: none;
-      z-index: 9999;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Two Profile Pictures</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f8f8f8;
+        }
+        .profile-container {
+            display: flex;
+            gap: 40px; /* space between the pictures */
+        }
+        .profile-pic {
+            border: 4px solid #4a90e2;
+            border-radius: 16px;
+            padding: 5px;
+            background: #fff;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
-
-  <div id="bg-before"></div>
-  <div id="bg-after"></div>
-
- 
-  <button id="enter-button">Click to Enter</button>
-
-
-  <div id="main-content">
-    <h1>death is inevitable...</h1>
-    <div class="text">
-      <a href="https://1800.sh/">1800.sh</a>
+    <div class="profile-container">
+        <img class="profile-pic" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Profile 1">
+        <img class="profile-pic" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Profile 2">
     </div>
-
-   
-    <audio id="bg-audio" loop>
-      <source src="Powfu - Death Bed Instrumental (slowed).mp3" type="audio/mpeg" />
-    
-    </audio>
-  </div>
-
-  <script>
-    function createSnowflake() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.textContent = '❄';
-
-      snowflake.style.left = Math.random() * window.innerWidth + 'px';
-      const duration = 5000 + Math.random() * 5000;
-      snowflake.style.animationDuration = duration + 'ms';
-      snowflake.style.opacity = Math.random() * 0.6 + 0.3;
-
-      document.body.appendChild(snowflake);
-
-      setTimeout(() => {
-        snowflake.remove();
-      }, duration);
-    }
-
-    const enterButton = document.getElementById('enter-button');
-    const mainContent = document.getElementById('main-content');
-    const bgAudio = document.getElementById('bg-audio');
-    const bgBefore = document.getElementById('bg-before');
-    const bgAfter = document.getElementById('bg-after');
-    let snowflakeInterval;
-
-    enterButton.addEventListener('click', () => {
-     
-      enterButton.classList.add('fade-out');
-
-     
-      bgBefore.style.opacity = '0';
-      bgAfter.style.opacity = '1';
-
-   
-      setTimeout(() => {
-        enterButton.style.display = 'none';
-
-        
-        mainContent.classList.add('visible');
-
-        
-        bgAudio.muted = false;
-        bgAudio.play().catch(e => {
-          console.log('Audio playback failed:', e);
-        });
-
-        
-        snowflakeInterval = setInterval(createSnowflake, 200);
-      }, 1000); 
-    });
-  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
