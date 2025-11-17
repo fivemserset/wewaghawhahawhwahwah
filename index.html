@@ -34,7 +34,7 @@
       z-index: 9999;
       flex-direction: column;
       animation: fadeOut 1s ease forwards;
-      animation-delay: 2.8s;
+      animation-delay: 5s; /* stays 5 seconds before fading */
     }
 
     #loading-screen::after {
@@ -335,13 +335,15 @@
     }
     document.body.appendChild(snowContainer);
 
-    // Smooth fade-out of loading screen once loaded
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loading-screen');
-      loader.style.transition = 'opacity 1s ease';
-      loader.style.opacity = '0';
-      setTimeout(() => loader.remove(), 1000);
-    });
+    // Remove loader after 5 seconds
+    window.onload = () => {
+      setTimeout(() => {
+        const loader = document.getElementById('loading-screen');
+        loader.style.transition = 'opacity 1s ease';
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 1000);
+      }, 5000);
+    };
   </script>
 </body>
 </html>
