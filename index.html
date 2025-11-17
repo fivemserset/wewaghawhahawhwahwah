@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
       overflow: hidden;
     }
 
-    /* Top center text link (bigger, lower, black glow) */
+  
     .top-link {
       position: fixed;
       top: 60px;
@@ -38,7 +38,7 @@
       transform: translateX(-50%) scale(1.05);
     }
 
-    /* Black fade screen */
+    /* Black fade screen with loading text */
     #loading-screen {
       position: fixed;
       top: 0;
@@ -49,6 +49,22 @@
       z-index: 9999;
       opacity: 1;
       transition: opacity 2.5s ease;
+    }
+
+    #loading-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 28px;
+      letter-spacing: 2px;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.3; }
     }
 
     .wrapper {
@@ -162,15 +178,16 @@
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(100vh) rotate(360deg); }
     }
-
   </style>
 </head>
 <body>
-  <!-- Top Center Link -->
-  <a href="https://example.com" class="top-link" target="_blank">Visit My Link</a>
 
-  <!-- Black Fade Screen -->
-  <div id="loading-screen"></div>
+  <a href="https://t.me/ae_hof" class="top-link" target="_blank">AE HOF</a>
+
+
+  <div id="loading-screen">
+    <div id="loading-text">Loading...</div>
+  </div>
 
   <div class="wrapper">
     <div class="profile">
@@ -194,7 +211,7 @@
   <div class="static"></div>
 
   <script>
-    // Snow effect
+  
     const snowContainer = document.createDocumentFragment();
     for (let i = 0; i < 60; i++) {
       const snowflake = document.createElement('div');
@@ -209,7 +226,7 @@
     }
     document.body.appendChild(snowContainer);
 
-    // Fade out loading screen
+
     window.addEventListener('load', () => {
       const loader = document.getElementById('loading-screen');
       loader.style.opacity = '0';
@@ -218,4 +235,3 @@
   </script>
 </body>
 </html>
-
